@@ -1,0 +1,23 @@
+{
+  "name": "INOVEA-WebApp",
+  "version": "0.1.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/app/bower_components/",
+    "test",
+    "tests"
+  ],
+  "description": "INOVEA Web Application",
+  "main": "index.html",
+  "authors": [
+    "inovea.esgi@gmail.com"
+  ],
+  "homepage": "https://github.com/inovea",
+  "dependencies": {
+    "angular": "~1.4.1",
+    "ng-lodash": "~0.2.3"
+  }
+}

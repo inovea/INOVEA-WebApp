@@ -1,0 +1,26 @@
+{
+  "name": "INOVEA-WebApp",
+  "version": "0.1.0",
+  "description": "INOVEA Web Application",
+  "main": "src/index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inovea/INOVEA-WebApp"
+  },
+  "keywords": [
+    "inovea",
+    "Hybrid"
+  ],
+  "author": "Sébastien Louis",
+  "license": "ISC"
+}
