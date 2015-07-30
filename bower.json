@@ -18,6 +18,7 @@
   "homepage": "https://github.com/inovea",
   "dependencies": {
     "angular": "~1.4.1",
-    "ng-lodash": "~0.2.3"
+    "ng-lodash": "~0.2.3",
+    "jquery": "~2.1.4"
   }
 }
