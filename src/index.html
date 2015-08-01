@@ -17,8 +17,9 @@
 
 
     <div ng-repeat="user in users track by $index">
-     {{user.name}} {{user.firstname}}
+      {{user.firstname}} {{user.name}}
      <i class="remove icon red" ng-click="deleteUser(user._id)"></i>
+     <i class="write icon" ng-click="setUpdateUser(user._id, user.name, user.firstname)"></i>
 
    </div>
    
@@ -28,12 +29,16 @@
 
    
   <div class="ui input small">
-    <input  id="name" type="text" ng-model="newName" placeholder="Firstname">
+    <input  id="name" type="text" ng-model="newFirstname" placeholder="Firstname">
   </div> 
   <div class="ui input small">
-      <input id="firstname" type="text" ng-model="newFirstname"  placeholder="Name"><br>
+      <input id="firstname" type="text" ng-model="newName"  placeholder="Name"><br>
   </div>
-  <button class="ui button small green" ng-click="addUser()">+ Add</button>
+  
+  <div>
+      <button ng-if="idSelectedUser == '' " class="ui button small green" ng-click="addUser()">+ Add</button>
+      <button ng-if="idSelectedUser != '' " class="ui button small blue" ng-click="updateUser()">Update</button>
+  </div>
 
 
 
