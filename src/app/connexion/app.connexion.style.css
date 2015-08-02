@@ -1,0 +1,11 @@
+.connexionScreen{
+	height:100vh;
+	background-size:100% 100%;
+	background-image: url("../../img/connexion_background.jpg");
+}
+
+#connexionPanel{
+	border-radius:10px;
+	background-color:white;
+	width:300px;
+}

@@ -10,7 +10,7 @@
     /* @ngInject */
     function MainCtrl($log, $scope, $http) {
         //var serverUrl = 'http://localhost:8080';
-       var serverUrl = "https://pure-tor-1824.herokuapp.com"
+       var serverUrl = "https://pure-tor-1824.herokuapp.com";
 
 
 
@@ -21,10 +21,6 @@
 
         function activate() {
             $log.debug('MainCtrl activated');
-           /* $http.get('https://pure-tor-1824.herokuapp.com/getUser').success(function(result){
-              $scope.user = result;
-            })
-*/
         $scope.getUsers();
             
         }
