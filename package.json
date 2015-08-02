@@ -4,13 +4,8 @@
   "description": "INOVEA Web Application",
   "main": "src/index.html",
   "dependencies": {
-    "better-console": "^0.2.4",
-    "del": "^1.2.0",
-    "extend": "^3.0.0",
-    "map-stream": "0.0.6",
-    "require-dot-file": "^0.4.0",
-    "semantic-ui": "^2.0.7",
-    "yamljs": "^0.2.3"
+    "bower": "^1.4.1",
+    "gulp": "^3.9.0"
   },
   "devDependencies": {
     "browser-sync": "^2.7.13",
