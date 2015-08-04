@@ -22,9 +22,14 @@
  			//On connexionBtn click ==> Webservice connexion
     		$scope.connect = function(){
 
-    		
-    			startLoading();
-
+    		$('#connexionBtn')
+                .transition('jiggle')
+            ;
+    			setTimeout(function(){
+                    //Stop loader and able inputs
+                    startLoading();
+                    
+                }, 800);
 
     			setTimeout(function(){
     				//Stop loader and able inputs

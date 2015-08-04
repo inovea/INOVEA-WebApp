@@ -9,8 +9,8 @@
 
     /* @ngInject */
     function MainCtrl($log, $scope, $http) {
-        //var serverUrl = 'http://localhost:8080';
-       var serverUrl = "https://pure-tor-1824.herokuapp.com";
+        var serverUrl = 'http://localhost:8080';
+      // var serverUrl = "https://pure-tor-1824.herokuapp.com";
 
 
 
