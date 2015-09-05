@@ -4,8 +4,26 @@
 	background-image: url("../../img/connexion_background.jpg");
 }
 
+.forgottenPassword{
+	border-radius:10px;
+	background-color:white;
+	width:600px;
+	height: 250px;
+}
+
+.forgottenPasswordTitle{
+	color : black;
+	padding-top: 2%;
+	padding-bottom: 5%;
+}
+
+.forgottenPasswordForm{
+	width:70%;
+}
+
 #connexionPanel{
 	border-radius:10px;
 	background-color:white;
 	width:300px;
 }
+

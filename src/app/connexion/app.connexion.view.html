@@ -9,16 +9,16 @@
     <div class="ui center aligned basic segment out" id="connexionPanel">
       <div class="ui form" >
         <div class="field">
-          <label>Pseudo</label>
+          <label>Adresse mail</label>
           <div class="ui left icon input small">
-            <input id="username"type="text" placeholder="Pseudo">
+            <input id="username"type="text" ng-model="userMail">
             <i class="user icon"></i>
           </div>
         </div>
         <div class="field">
           <label>Mot de passe</label>
           <div class="ui left icon input">
-            <input id="password" type="password">
+            <input id="password" type="password" ng-model="userPassword">
             <i class="lock icon"></i>
           </div>
         </div>
@@ -28,9 +28,33 @@
         </div><br><br>
         <div id="connexionBtn" class="ui blue submit button" ng-click="connect()">Connexion</div>
         <br><br>
-        <div class="field small">
-          <label>Mot de pass oublié ?</label>
+        <!--  Overlay mot de passe oublié -->
+        <div class="field small forgottenPasswordDimmer">
+          <div class="ui dimmer page">
+            <div class="content">
+              <div align="center">
+                <div class="forgottenPassword" align="center">
+                    <h2 class="forgottenPasswordTitle">Mot de passe oublié</h2>
+                    <form class="ui form forgottenPasswordForm">
+                      <div class="field" align="left">
+                        <label>Adresse mail</label>
+                        <div class="ui input">
+                          <input type="text" name="mail">
+                        </div>
+                      </div>
+                      <br><br>
+                      <div class="ui buttons">
+                        <button class="ui button" ng-click="hideForgottenPassword()">Annuler</button>
+                        <div class="or" data-text="ou"></div>
+                        <button class="ui positive button">Envoyer</button>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label ng-click="showForgottenPassword()">Mot de pass oublié ?</label>
         </div>
+        <!-- End overlay mot de passe oublié -->
       </div>
     </div>
 
