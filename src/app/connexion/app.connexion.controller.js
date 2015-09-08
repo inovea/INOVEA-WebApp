@@ -28,19 +28,7 @@
  			//On connexionBtn click ==> Webservice connexion
     		$scope.connect = function(){
 
-    		  $('#connexionBtn')
-                .transition({
-                    animation : 'jiggle',
-                    duration : '0.5s'
-                });
-
-    	       setTimeout(function(){
-                    //Stop loader and able inputs
-                    startLoading();
-                    
-                }, 800);
-
-    			
+    			startLoading();
 
                 var data = {
                     mail : $scope.userMail,
@@ -53,7 +41,7 @@
 
                 if(result.mail){
                     console.log(JSON.stringify(result));
-                    alert('connexion réussie');
+                    $location.path('/map');
                     
                 }
                    
@@ -61,15 +49,15 @@
                    alert('echec');
                    console.log(JSON.stringify(result));
                 }
+
+
+                    //Stop loader and able inputs
+                    stopLoading();
                     
                 })
 
 
-                setTimeout(function(){
-                    //Stop loader and able inputs
-                    stopLoading();
-                    
-                }, 2000);
+                
     		}
 
 
