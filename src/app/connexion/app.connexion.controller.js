@@ -5,16 +5,14 @@
     .module('app')
     .controller('ConnexionCtrl', ConnexionCtrl);
 
-    ConnexionCtrl.$inject = ['$log', '$scope', '$http', '$location'];
+    ConnexionCtrl.$inject = ['$log', '$scope', '$http', '$location', '$rootScope'];
 
     /* @ngInject */
-    function ConnexionCtrl($log, $scope, $http, $location) {
+    function ConnexionCtrl($log, $scope, $http, $location, $rootScope) {
 
             $scope.userMail ="";
             $scope.userPassword="";
-            var serverUrl = "https://pure-tor-1824.herokuapp.com";
-           
-
+           var serverUrl = $rootScope.serverUrl;
     		//Animation du panneau de connexion
     		$('#connexionPanel')
     		  .transition('hide')

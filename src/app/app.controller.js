@@ -5,12 +5,12 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['$log', '$scope', '$http'];
+    MainCtrl.$inject = ['$log', '$scope', '$http', '$rootScope'];
 
     /* @ngInject */
-    function MainCtrl($log, $scope, $http) {
+    function MainCtrl($log, $scope, $http, $rootScope) {
        //var serverUrl = 'http://localhost:8080';
-       var serverUrl = "https://pure-tor-1824.herokuapp.com";
+       var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
 
 
 
