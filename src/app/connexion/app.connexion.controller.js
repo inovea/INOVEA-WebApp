@@ -35,7 +35,7 @@
 
 
                 console.log(JSON.stringify(data));
-               $http.post(serverUrl+"/connexion", data).success(function(result){
+                $http.post(serverUrl+"/connexion", data).success(function(result){
 
                 if(result.mail){
                     console.log(JSON.stringify(result));

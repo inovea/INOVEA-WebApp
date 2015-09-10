@@ -17,7 +17,7 @@
                 })
                 .when('/usersView', {
                     templateUrl: 'app/users/app.users.view.html',
-                    controller : 'MainCtrl'
+                    controller : 'UserCtrl'
                 })
 
                 .otherwise({

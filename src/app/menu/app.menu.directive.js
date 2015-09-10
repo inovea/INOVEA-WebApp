@@ -5,9 +5,10 @@
     .module('app')
     .directive('inoveaMenu', InoveaMenu);
 
+    InoveaMenu.$inject = ['$location'];
 
     /* @ngInject */
-    function InoveaMenu() {
+    function InoveaMenu($location) {
             
             return {
                 templateUrl: 'app/menu/app.menu.view.html',
@@ -16,6 +17,10 @@
 
                     scope.openMenu = function(){
                         $('.ui.sidebar').sidebar('toggle')
+                    };
+
+                    scope.goToView = function(path){
+                        $location.path(path);
                     };
 
                     scope.title = attrs.title;
