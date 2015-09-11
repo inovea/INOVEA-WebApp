@@ -1,6 +1,32 @@
-<inovea-menu title="Users"></inovea-menu>
+<inovea-menu title="Utilisateurs"></inovea-menu>
 
-HELLO
+<table class="ui fixed striped padded inverted grey table">
+  <thead>
+    <tr><th>Nom</th>
+    <th>Prenom</th>
+    <th>Mail</th>
+    <th>Phone</th>
+    <th>Administrateur</th>
+  </tr></thead>
+  <tbody>
+    <tr ng-repeat='user in users' ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}">
+      <td >{{user.name}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.mail}}</td>
+      <td>{{user.phone}}</td>
+      <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
+    </tr>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th colspan="5">
+        <div class="ui right floated small primary labeled icon button">
+          <i class="user icon"></i> Add User
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
 
 
 
