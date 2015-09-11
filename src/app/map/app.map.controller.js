@@ -52,25 +52,25 @@
 
 
     var image = {
-        url: 'empty_container_marker.png'
+        url: '../img/empty_container_marker.png'
     };
 
     if (container.state == 1 ) {
         if (container.Errand_idErrand != 1)
-            image.url = 'busy_full_container_marker.png'
+            image.url = '../img/busy_full_container_marker.png'
         else
-            image.url = 'full_container_marker.png'
+            image.url = '../img/full_container_marker.png'
     }
 
     else if(container.state == 2)
     {
      if (container.Errand_idErrand != 1)
-        image.url = 'busy_alert_container_marker.png'
+        image.url = '../img/busy_alert_container_marker.png'
     else
-        image.url = 'alert_container_marker.png'
+        image.url = '../img/alert_container_marker.png'
 }
 else if(container.Errand_idErrand != 1)
-    image.url = 'busy_empty_container_marker.png'
+    image.url = '../img/busy_empty_container_marker.png'
 
 
 geocoder.geocode({'address': container.address}, function (results, status) {
