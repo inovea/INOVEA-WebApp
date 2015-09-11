@@ -16,8 +16,7 @@
         var geocoder = new google.maps.Geocoder();
         // Markers object   
         var markers ={};
-            
-
+           
         function initializeContainers(){
             $scope.containers = mapService.getContainers();
             $log.debug('[MapCtrl] $scope.containers : ' + JSON.stringify($scope.containers)); 

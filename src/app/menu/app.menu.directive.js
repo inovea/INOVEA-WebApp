@@ -18,6 +18,10 @@
                         $('.ui.sidebar').sidebar('toggle')
                     };
 
+
+        scope.openNewErrandPopup = function(){
+            alert('ok');
+        }
                     scope.title = attrs.title;
                 }
             };
