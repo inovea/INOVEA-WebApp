@@ -1,104 +1,163 @@
-<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
-
-
 <inovea-menu title="Utilisateurs"></inovea-menu>
 
+<!-- BARRE DE RECHERCHE -->
 <form>
-    <!--<div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control" placeholder="Rechercher un utilisateur" ng-model="searchFish">
-      </div>      
-    </div>-->
-<div class="ui fluid category search">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchFish">
-    <i class="search icon"></i>
-  </div>
-<div class="results"></div>
-
-</form>
-
-<table class="ui fixed striped selectable padded inverted grey table">
-  <thead>
-    <tr>
-      <th>
-        <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">Nom
-          <i class="sort ascending icon" ng-show="sortType == 'name' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'name' && !sortReverse"></i>
-          <!--<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>-->
-        </a>
-      </th>
-      <th>
-        <a href="" ng-click="sortType = 'firstname'; sortReverse = !sortReverse">Prenom
-          <i class="sort ascending icon" ng-show="sortType == 'firstname' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'firstname' && !sortReverse"></i>
-        </a>  
-      </th>
-      <th>
-        <a href="" ng-click="sortType = 'mail'; sortReverse = !sortReverse">Mail
-          <i class="sort ascending icon" ng-show="sortType == 'mail' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'mail' && !sortReverse"></i>
-        </a> 
-      </th>
-      <th>
-        <a href="" ng-click="sortType = 'phone'; sortReverse = !sortReverse">Telephone
-          <i class="sort ascending icon" ng-show="sortType == 'phone' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'phone' && !sortReverse"></i>
-        </a>
-      </th>
-      <th>
-        <a href="" ng-click="sortType = 'admin'; sortReverse = !sortReverse">Administrateur
-          <i class="sort ascending icon" ng-show="sortType == 'admin' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'admin' && !sortReverse"></i>
-        </a>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat='user in users | orderBy:sortType:sortReverse | filter:searchFish'>
-      <!--ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}-->
-      <td >{{user.name}}</td>
-      <td>{{user.firstname}}</td>
-      <td>{{user.mail}}</td>
-      <td>{{user.phone}}</td>
-      <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
-    </tr>
-  </tbody>
-  <tfoot class="full-width">
-    <tr>
-      <th>
-        <div class="ui fluid category search">
-          <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchFish">
-            <i class="search icon"></i>
-          </div>
-        <div class="results"></div>
-      </th>
-      <th colspan="5">
-        <div class="ui right floated small primary labeled icon button">
-          <i class="user icon"></i> Ajouter
-        </div>
-      </th>
-    </tr>
-  </tfoot>
-</table>
-
-<!--<div ng-repeat="user in users track by $index">
-      {{user.firstname}} {{user.name}}
-      <i class="remove icon red" ng-click="deleteUser(user._id)"></i>
-      <i class="write icon" ng-click="setUpdateUser(user._id, user.name, user.firstname)"></i>
-
-   </div>
-   
-    <div class="ui input small">
-      <input  id="name" type="text" ng-model="newFirstname" placeholder="Firstname">
-    </div> 
-    <div class="ui input small">
-      <input id="firstname" type="text" ng-model="newName"  placeholder="Name"><br>
+  <div class="ui fluid category search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchUser">
+      <i class="search icon"></i>
     </div>
-    <div>
-      <button ng-if="idSelectedUser == '' " class="ui button small green" ng-click="addUser()">+ Add</button>
-      <button ng-if="idSelectedUser != '' " class="ui button small blue" ng-click="updateUser()">Update</button>
-</div>-->
+    <div class="results"></div>
+  </form>
+
+  <!-- TABLEAUX D'UTILISATEUR -->
+  <table class="ui fixed striped selectable padded inverted grey table">
+    <thead>
+      <tr>
+        <th>
+          <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">Nom
+            <i class="sort ascending icon" ng-show="sortType == 'name' && sortReverse"></i>
+            <i class="sort descending icon" ng-show="sortType == 'name' && !sortReverse"></i>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'firstname'; sortReverse = !sortReverse">Prenom
+            <i class="sort ascending icon" ng-show="sortType == 'firstname' && sortReverse"></i>
+            <i class="sort descending icon" ng-show="sortType == 'firstname' && !sortReverse"></i>
+          </a>  
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'mail'; sortReverse = !sortReverse">Mail
+            <i class="sort ascending icon" ng-show="sortType == 'mail' && sortReverse"></i>
+            <i class="sort descending icon" ng-show="sortType == 'mail' && !sortReverse"></i>
+          </a> 
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'phone'; sortReverse = !sortReverse">Telephone
+            <i class="sort ascending icon" ng-show="sortType == 'phone' && sortReverse"></i>
+            <i class="sort descending icon" ng-show="sortType == 'phone' && !sortReverse"></i>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'admin'; sortReverse = !sortReverse">Administrateur
+            <i class="sort ascending icon" ng-show="sortType == 'admin' && sortReverse"></i>
+            <i class="sort descending icon" ng-show="sortType == 'admin' && !sortReverse"></i>
+          </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='user in users | orderBy:sortType:sortReverse | filter:searchUser' ng-click="openUserInfoView(user)" >
+        <td >{{user.name}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.mail}}</td>
+        <td>{{user.phone}}</td>
+        <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
+      </tr>
+    </tbody>
+    <tfoot class="full-width">
+      <tr>
+        <th>
+          <div class="ui fluid category search">
+            <div class="ui icon input">
+              <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchUser">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </th>
+          <th colspan="5">
+            <div class="ui right floated small primary labeled icon button">
+              <i class="user icon"></i> Ajouter
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- USER VIEW INFO -->
+    <div class="ui modal">
+      <div class="header">Informations</div>
+      <div class="content">
+        <form class="ui fluid form">
+
+          <div class="field">
+            <div class="ui pointing below label">
+              Nom
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.name">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.name}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Prenom
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.firstname">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.firstname}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Mail
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.mail">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.mail}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Mot de passe
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.password">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.password}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Telephone
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.phone">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.phone}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="ui toggle checkbox" ng-if="isEditableInfoView">
+            <input type="checkbox" name="public" ng-model="selectedUser.admin">
+            <label>Administrateur</label>
+          </div>
+          <div ng-if="!isEditableInfoView">
+              <i class="checkmark green icon" ng-if="selectedUser.admin == true"></i>
+              <i class="remove red icon" ng-if="selectedUser.admin == false"></i> 
+              <label>Administrateur</label> 
+          </div>  
+
+          <div class="ui divider"></div>
+        </form>
+
+        <div class="ui buttons" ng-if="!isEditableInfoView">
+          <button class="ui grey button" ng-click="editInputs()">Modifier</button>
+          <div class="or" data-text="ou"></div>
+          <button class="ui red button">Supprimer</button>
+        </div>
+        <div class="ui buttons" ng-if="isEditableInfoView">
+          <button class="ui grey button" ng-click="editInputs()">Annuler</button>
+          <div class="or" data-text="ou"></div>
+          <button class="ui red button" ng-click="updateUser()">Enregistrer</button>
+        </div>
+
+      </div>
+    </div>

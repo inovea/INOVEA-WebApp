@@ -12,34 +12,53 @@
        //var serverUrl = 'http://localhost:8080';
        var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
 
-       $scope.getUsers = function(id){
+       $scope.selectedUser;
+       $scope.isEditableInfoView = false; 
 
-            if(id){
-                $http.get(serverUrl+'/users', id).success(function(result){
-                        return result;
-                    })
-                } else{
-                    $http.get(serverUrl+'/users').success(function(result){
-                    $scope.users = result;
-                })
-            }
-               
+       $scope.editInputs = function () {
+        $scope.isEditableInfoView = !$scope.isEditableInfoView;
+    };
+
+    $scope.openUserInfoView = function (selectedUser) {
+        $('.ui.modal')
+        .modal('setting', 'closable', false)
+        .modal('show')
+        ;
+        console.log(JSON.stringify(selectedUser));
+        $scope.selectedUser = selectedUser;
+    };
+
+
+    $scope.getUsers = function(id){
+        if(id){
+            $http.get(serverUrl+'/users', id).success(function(result){
+                return result;
+            })
+        } else{
+            $http.get(serverUrl+'/users').success(function(result){
+                $scope.users = result;
+            })
         }
 
-        $scope.idSelectedUser = null;
-        $scope.setSelected = function (idSelectedUser) {
-            console.log(JSON.stringify(idSelectedUser));
-            $scope.idSelectedUser = idSelectedUser;
-        };
+    }
 
-        /*var orderBy = $filter('orderBy');
-        $scope.order = function(predicate, reverse) {
-            $scope.users = orderBy($scope.users, predicate, reverse);
-        };
-        $scope.order('name',false);*/
+    $scope.updateUser = function (){
+        var data = {
+                    id : $scope.selectedUser.id,
+                    name : $scope.selectedUser.name,
+                    firstname : $scope.selectedUser.firstname,
+                    phone : $scope.selectedUser.phone
+        }
 
-        $scope.users = $scope.getUsers();
-        console.log(JSON.stringify($scope.users));
+        $http.post(serverUrl+'/updateUser', $scope.selectedUser).success(function(data, status) {
+            console.log(JSON.stringify($scope.selectedUser));
+            $scope.editInputs();
+        })
+    }
+
+
+    $scope.users = $scope.getUsers();
+        // console.log(JSON.stringify($scope.users));
 
     }
 })();
