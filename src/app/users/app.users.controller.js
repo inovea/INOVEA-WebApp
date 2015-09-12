@@ -27,8 +27,14 @@
         console.log(JSON.stringify(selectedUser));
         $scope.selectedUser = selectedUser;
     };
+    $scope.closeUserInfoView = function (selectedUser) {
+        $('#infoUserModal')
+        .modal('hide')
+        ;
+    };
 
-    $scope.openUserAddView = function (selectedUser) {
+
+    $scope.openUserAddView = function () {
         $('#addUserModal')
         .modal('setting', 'closable', false)
         .modal('show')
@@ -36,6 +42,12 @@
         console.log(JSON.stringify(selectedUser));
         $scope.selectedUser = selectedUser;
     };
+
+    $scope.closeUserAddView = function(){
+        $('#addUserModal')
+            .modal('hide')
+        ;
+    }
 
 
     $scope.getUsers = function(id){
@@ -51,13 +63,14 @@
 
     }
 
+    $scope.addUser = function(){
+                $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
+                    $scope.getUsers();
+                })
+                $scope.closeUserAddView();
+    }
+
     $scope.updateUser = function (){
-        var data = {
-                    id : $scope.selectedUser.id,
-                    name : $scope.selectedUser.name,
-                    firstname : $scope.selectedUser.firstname,
-                    phone : $scope.selectedUser.phone
-        }
 
         $http.post(serverUrl+'/updateUser', $scope.selectedUser).success(function(data, status) {
             console.log($scope.selectedUser._id);

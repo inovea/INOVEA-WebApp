@@ -1,14 +1,17 @@
 <inovea-menu title="Utilisateurs"></inovea-menu>
 
 <!-- BARRE DE RECHERCHE -->
-<form>
+<div id="userHeader">
   <div class="ui fluid category search">
     <div class="ui icon input">
       <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchUser">
       <i class="search icon"></i>
     </div>
     <div class="results"></div>
-  </form>
+    <div class="ui right floated small primary labeled icon button" ng-click="openUserAddView()">
+              <i class="user icon"></i> Ajouter
+            </div>
+</div>
 
   <!-- TABLEAUX D'UTILISATEUR -->
   <table class="ui fixed striped selectable padded inverted grey table">
@@ -55,7 +58,7 @@
         <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
       </tr>
     </tbody>
-    <tfoot class="full-width">
+    <!--tfoot class="full-width">
       <tr>
         <th>
           <div class="ui fluid category search">
@@ -66,17 +69,20 @@
             <div class="results"></div>
           </th>
           <th colspan="5">
-            <div class="ui right floated small primary labeled icon button">
+            <div class="ui right floated small primary labeled icon button" ng-click="openUserAddView()">
               <i class="user icon"></i> Ajouter
             </div>
           </th>
         </tr>
-      </tfoot>
+      </tfoot-->
     </table>
 
     <!-- INFO USER VIEW -->
     <div id="infoUserModal" class="ui modal">
-      <div class="header">Informations</div>
+      <div class="header">
+          Informations
+          <i class="remove red icon exitIcon" ng-click="closeUserInfoView()"></i> 
+      </div>
       <div class="content">
         <form class="ui fluid form">
 
@@ -156,14 +162,17 @@
         <div class="ui buttons" ng-if="isEditableInfoView">
           <button class="ui grey button" ng-click="editInputs()">Annuler</button>
           <div class="or" data-text="ou"></div>
-          <button class="ui red button" ng-click="updateUser()">Enregistrer</button>
+          <button class="ui green button" ng-click="updateUser()">Enregistrer</button>
         </div>
 
       </div>
 
     <!-- ADD USER VIEW -->
     <div id="addUserModal" class="ui modal">
-      <div class="header">Nouveau utilisateur</div>
+      <div class="header">
+        Nouveau utilisateur
+      <i class="remove red icon exitIcon" ng-click="closeUserAddView()"></i>
+    </div>
       <div class="content">
         <form class="ui fluid form">
 
@@ -212,34 +221,24 @@
               Telephone
             </div>
             <div class="ui small icon input">
-              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.phone">
+              <input type="text" ng-model="newUser.phone">
             </div>
-            <div ng-if="!isEditableInfoView">{{selectedUser.phone}}</div>
           </div>
 
           <div class="ui divider"></div>
-          <div class="ui toggle checkbox" ng-if="isEditableInfoView">
-            <input type="checkbox" name="public" ng-model="selectedUser.admin">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="public" ng-model="newUser.admin">
             <label>Administrateur</label>
           </div>
-          <div ng-if="!isEditableInfoView">
-            <i class="checkmark green icon" ng-if="selectedUser.admin == true"></i>
-            <i class="remove red icon" ng-if="selectedUser.admin == false"></i> 
-            <label>Administrateur</label> 
-          </div>  
-
+          
           <div class="ui divider"></div>
         </form>
 
-        <div class="ui buttons" ng-if="!isEditableInfoView">
-          <button class="ui grey button" ng-click="editInputs()">Modifier</button>
+      
+        <div class="ui buttons">
+          <button class="ui grey button" ng-click="closeUserAddView()">Annuler</button>
           <div class="or" data-text="ou"></div>
-          <button class="ui red button">Supprimer</button>
-        </div>
-        <div class="ui buttons" ng-if="isEditableInfoView">
-          <button class="ui grey button" ng-click="editInputs()">Annuler</button>
-          <div class="or" data-text="ou"></div>
-          <button class="ui red button" ng-click="updateUser()">Enregistrer</button>
+          <button class="ui green button" ng-click="addUser()">Valider</button>
         </div>
 
       </div>  
