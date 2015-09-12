@@ -45,7 +45,7 @@
 
     $scope.closeUserAddView = function(){
         $('#addUserModal')
-            .modal('hide')
+        .modal('hide')
         ;
     }
 
@@ -64,11 +64,18 @@
     }
 
     $scope.addUser = function(){
-                $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
-                    $scope.getUsers();
-                })
-                $scope.closeUserAddView();
+        $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
+            $scope.getUsers();
+        })
+        $scope.closeUserAddView();
     }
+
+     $scope.deleteUser = function(){
+                $http.post(serverUrl+"/deleteUser", $scope.selectedUser).success(function(result){
+                    $scope.getUsers();
+                    $scope.closeUserInfoView;
+                })
+            }
 
     $scope.updateUser = function (){
 
