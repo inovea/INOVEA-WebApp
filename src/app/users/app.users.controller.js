@@ -39,8 +39,6 @@
         .modal('setting', 'closable', false)
         .modal('show')
         ;
-        console.log(JSON.stringify(selectedUser));
-        $scope.selectedUser = selectedUser;
     };
 
     $scope.closeUserAddView = function(){
@@ -64,16 +62,21 @@
     }
 
     $scope.addUser = function(){
+
+        console.log('before add : ', $scope.newUser);
         $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
             $scope.getUsers();
         })
         $scope.closeUserAddView();
+        $scope.newUser = {};
+        console.log("after add :", $scope.newUser);
+
     }
 
      $scope.deleteUser = function(){
                 $http.post(serverUrl+"/deleteUser", $scope.selectedUser).success(function(result){
                     $scope.getUsers();
-                    $scope.closeUserInfoView;
+                    $scope.closeUserInfoView();
                 })
             }
 
