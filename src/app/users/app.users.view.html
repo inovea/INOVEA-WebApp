@@ -74,8 +74,8 @@
       </tfoot>
     </table>
 
-    <!-- USER VIEW INFO -->
-    <div class="ui modal">
+    <!-- INFO USER VIEW -->
+    <div id="infoUserModal" class="ui modal">
       <div class="header">Informations</div>
       <div class="content">
         <form class="ui fluid form">
@@ -140,9 +140,9 @@
             <label>Administrateur</label>
           </div>
           <div ng-if="!isEditableInfoView">
-              <i class="checkmark green icon" ng-if="selectedUser.admin == true"></i>
-              <i class="remove red icon" ng-if="selectedUser.admin == false"></i> 
-              <label>Administrateur</label> 
+            <i class="checkmark green icon" ng-if="selectedUser.admin == true"></i>
+            <i class="remove red icon" ng-if="selectedUser.admin == false"></i> 
+            <label>Administrateur</label> 
           </div>  
 
           <div class="ui divider"></div>
@@ -160,4 +160,88 @@
         </div>
 
       </div>
-    </div>
+
+    <!-- ADD USER VIEW -->
+    <div id="addUserModal" class="ui modal">
+      <div class="header">Nouveau utilisateur</div>
+      <div class="content">
+        <form class="ui fluid form">
+
+          <div class="field">
+            <div class="ui pointing below label">
+              Nom
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-model="newUser.name">
+            </div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Prenom
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-model="newUser.firstname">
+            </div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Mail
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-model="newUser.mail">
+            </div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Mot de passe
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-model="newUser.password">
+            </div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="field">
+            <div class="ui pointing below label">
+              Telephone
+            </div>
+            <div class="ui small icon input">
+              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.phone">
+            </div>
+            <div ng-if="!isEditableInfoView">{{selectedUser.phone}}</div>
+          </div>
+
+          <div class="ui divider"></div>
+          <div class="ui toggle checkbox" ng-if="isEditableInfoView">
+            <input type="checkbox" name="public" ng-model="selectedUser.admin">
+            <label>Administrateur</label>
+          </div>
+          <div ng-if="!isEditableInfoView">
+            <i class="checkmark green icon" ng-if="selectedUser.admin == true"></i>
+            <i class="remove red icon" ng-if="selectedUser.admin == false"></i> 
+            <label>Administrateur</label> 
+          </div>  
+
+          <div class="ui divider"></div>
+        </form>
+
+        <div class="ui buttons" ng-if="!isEditableInfoView">
+          <button class="ui grey button" ng-click="editInputs()">Modifier</button>
+          <div class="or" data-text="ou"></div>
+          <button class="ui red button">Supprimer</button>
+        </div>
+        <div class="ui buttons" ng-if="isEditableInfoView">
+          <button class="ui grey button" ng-click="editInputs()">Annuler</button>
+          <div class="or" data-text="ou"></div>
+          <button class="ui red button" ng-click="updateUser()">Enregistrer</button>
+        </div>
+
+      </div>  
+
+</div>

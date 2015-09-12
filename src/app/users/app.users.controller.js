@@ -20,7 +20,16 @@
     };
 
     $scope.openUserInfoView = function (selectedUser) {
-        $('.ui.modal')
+        $('#infoUserModal')
+        .modal('setting', 'closable', false)
+        .modal('show')
+        ;
+        console.log(JSON.stringify(selectedUser));
+        $scope.selectedUser = selectedUser;
+    };
+
+    $scope.openUserAddView = function (selectedUser) {
+        $('#addUserModal')
         .modal('setting', 'closable', false)
         .modal('show')
         ;
@@ -51,10 +60,15 @@
         }
 
         $http.post(serverUrl+'/updateUser', $scope.selectedUser).success(function(data, status) {
+            console.log($scope.selectedUser._id);
             console.log(JSON.stringify($scope.selectedUser));
             $scope.editInputs();
         })
     }
+
+    // $scope.addUser = function (){
+    //     $scope.editInputs();
+    // }
 
 
     $scope.users = $scope.getUsers();
