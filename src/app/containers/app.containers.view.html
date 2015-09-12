@@ -54,6 +54,12 @@
           <i class="sort descending icon" ng-show="sortType == 'lastCollect' && !sortReverse"></i>
         </a>
       </th>
+      <th>
+        <a href="" ng-click="sortType = 'commentaire'; sortReverse = !sortReverse">Commentaire
+          <i class="sort ascending icon" ng-show="sortType == 'commentaire' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'commentaire' && !sortReverse"></i>
+        </a>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -64,6 +70,7 @@
       <td>{{container.lng}}</td>
       <td>{{container.address}}</td>
       <td>{{container.lastCollect}}</td>
+      <td>{{container.commentaire}}</td>
      <!-- <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>-->
     </tr>
   </tbody>
