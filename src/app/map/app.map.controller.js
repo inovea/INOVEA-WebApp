@@ -10,6 +10,11 @@
     /* @ngInject */
     function MapCtrl($log, $scope, $http, mapService) {
 
+
+    var $draggable = $('#newErrandPopup').draggabilly();
+
+
+
         //Map object
         var map;
         //To translate String adresse in Google Format adress with position (ex : 61.1648, 4.58058)

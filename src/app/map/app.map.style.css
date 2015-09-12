@@ -9,13 +9,17 @@
     padding: 0px
 }
 
+.examplediv {
+  position:absolute;
+  border:solid 5px #000;
+}
 #map_canvas {
 	height: 100%;
 	background-color: #666970;
 }
 
-#newErrandContainer { 
-	position: relative; 
+#newErrandDiv { 
+	position:absolute;
 }
 
 #newErrandPopup { 

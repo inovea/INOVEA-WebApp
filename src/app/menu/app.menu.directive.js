@@ -8,23 +8,30 @@
 
     /* @ngInject */
     function InoveaMenu() {
-            
-            return {
-                templateUrl: 'app/menu/app.menu.view.html',
-                scope : {},
-                link : function(scope, element, attrs){
 
-                    scope.openMenu = function(){
-                        $('.ui.sidebar').sidebar('toggle')
-                    };
+        return {
+            templateUrl: 'app/menu/app.menu.view.html',
+            scope : {},
+            link : function(scope, element, attrs){
+             scope.title = attrs.title;
+             scope.isNewErrandPopup = false;
 
-
-        scope.openNewErrandPopup = function(){
-            alert('ok');
-        }
-                    scope.title = attrs.title;
-                }
+             scope.openMenu = function(){
+                $('.ui.sidebar').sidebar('toggle')
             };
-    	 }
+
+
+            scope.openOrCloseNewErrandPopup = function(){
+                scope.isNewErrandPopup = !scope.isNewErrandPopup;
+
+                if(scope.isNewErrandPopup)
+                    $('#newErrandDiv').hide();
+                else
+                    $('#newErrandDiv').show();
+            }
+
+        }
+    };
+}
 })();
 
