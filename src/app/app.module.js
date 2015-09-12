@@ -19,6 +19,10 @@
                     templateUrl: 'app/users/app.users.view.html',
                     controller : 'UserCtrl'
                 })
+                .when('/containersView', {
+                    templateUrl: 'app/containers/app.containers.view.html',
+                    controller : 'ContainerCtrl'
+                })
 
                 .otherwise({
                     redirectTo: '/connexion'

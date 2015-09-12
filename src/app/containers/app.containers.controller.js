@@ -3,33 +3,33 @@
 
     angular
     .module('app')
-    .controller('UserCtrl', UserCtrl);
+    .controller('ContainerCtrl', ContainerCtrl);
 
-    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope'];
+    ContainerCtrl.$inject = ['$log', '$scope', '$http', '$rootScope'];
 
     /* @ngInject */
-    function UserCtrl($log, $scope, $http, $rootScope) {
+    function ContainerCtrl($log, $scope, $http, $rootScope) {
        //var serverUrl = 'http://localhost:8080';
        var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
 
-       $scope.getUsers = function(id){
+       $scope.getContainers = function(id){
 
             if(id){
-                $http.get(serverUrl+'/users', id).success(function(result){
+                $http.get(serverUrl+'/containers', id).success(function(result){
                         return result;
                     })
                 } else{
-                    $http.get(serverUrl+'/users').success(function(result){
-                    $scope.users = result;
+                    $http.get(serverUrl+'/containers').success(function(result){
+                    $scope.containers = result;
                 })
             }
                
         }
 
-        $scope.idSelectedUser = null;
-        $scope.setSelected = function (idSelectedUser) {
-            console.log(JSON.stringify(idSelectedUser));
-            $scope.idSelectedUser = idSelectedUser;
+        $scope.idSelectedContainer = null;
+        $scope.setSelected = function (idSelectedContainer) {
+            console.log(JSON.stringify(idSelectedContainer));
+            $scope.idSelectedContainer = idSelectedContainer;
         };
 
         /*var orderBy = $filter('orderBy');
@@ -38,8 +38,8 @@
         };
         $scope.order('name',false);*/
 
-        $scope.users = $scope.getUsers();
-        console.log(JSON.stringify($scope.users));
+        $scope.containers = $scope.getContainers();
+        console.log(JSON.stringify($scope.containers));
 
     }
 })();

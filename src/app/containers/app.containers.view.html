@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
 
 
-<inovea-menu title="Utilisateurs"></inovea-menu>
+<inovea-menu title="Conteneurs"></inovea-menu>
 
 <form>
     <!--<div class="form-group">
@@ -31,39 +31,40 @@
         </a>
       </th>
       <th>
-        <a href="" ng-click="sortType = 'firstname'; sortReverse = !sortReverse">Prenom
-          <i class="sort ascending icon" ng-show="sortType == 'firstname' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'firstname' && !sortReverse"></i>
+        <a href="" ng-click="sortType = 'lat'; sortReverse = !sortReverse">Latitude
+          <i class="sort ascending icon" ng-show="sortType == 'lat' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'lat' && !sortReverse"></i>
         </a>  
       </th>
       <th>
-        <a href="" ng-click="sortType = 'mail'; sortReverse = !sortReverse">Mail
-          <i class="sort ascending icon" ng-show="sortType == 'mail' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'mail' && !sortReverse"></i>
+        <a href="" ng-click="sortType = 'lng'; sortReverse = !sortReverse">Longitude
+          <i class="sort ascending icon" ng-show="sortType == 'lng' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'lng' && !sortReverse"></i>
         </a> 
       </th>
       <th>
-        <a href="" ng-click="sortType = 'phone'; sortReverse = !sortReverse">Telephone
-          <i class="sort ascending icon" ng-show="sortType == 'phone' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'phone' && !sortReverse"></i>
+        <a href="" ng-click="sortType = 'address'; sortReverse = !sortReverse">Adresse
+          <i class="sort ascending icon" ng-show="sortType == 'address' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'address' && !sortReverse"></i>
         </a>
       </th>
       <th>
-        <a href="" ng-click="sortType = 'admin'; sortReverse = !sortReverse">Administrateur
-          <i class="sort ascending icon" ng-show="sortType == 'admin' && sortReverse"></i>
-          <i class="sort descending icon" ng-show="sortType == 'admin' && !sortReverse"></i>
+        <a href="" ng-click="sortType = 'lastCollect'; sortReverse = !sortReverse">Dernière Collecte
+          <i class="sort ascending icon" ng-show="sortType == 'lastCollect' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'lastCollect' && !sortReverse"></i>
         </a>
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat='user in users | orderBy:sortType:sortReverse | filter:searchFish'>
+    <tr ng-repeat='container in containers | orderBy:sortType:sortReverse | filter:searchFish'>
       <!--ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}-->
-      <td >{{user.name}}</td>
-      <td>{{user.firstname}}</td>
-      <td>{{user.mail}}</td>
-      <td>{{user.phone}}</td>
-      <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
+      <td >{{container.name}}</td>
+      <td>{{container.lat}}</td>
+      <td>{{container.lng}}</td>
+      <td>{{container.address}}</td>
+      <td>{{container.lastCollect}}</td>
+     <!-- <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>-->
     </tr>
   </tbody>
   <tfoot class="full-width">
