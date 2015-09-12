@@ -9,6 +9,15 @@
     padding: 0px
 }
 
+#actionButtons{
+	width:200px;
+	height:40px;
+	background-color: #4791FF;
+	position:absolute;
+	z-index: 99;
+	border-radius: 15px;
+}
+
 .examplediv {
   position:absolute;
   border:solid 5px #000;

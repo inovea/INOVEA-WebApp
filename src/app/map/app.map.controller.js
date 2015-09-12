@@ -11,7 +11,9 @@
     function MapCtrl($log, $scope, $http, mapService) {
 
 
-    var $draggable = $('#newErrandPopup').draggabilly();
+        $('#newErrandPopup').draggabilly();
+        $('#actionButtons').draggabilly();
+
 
 
 
@@ -21,6 +23,8 @@
         var geocoder = new google.maps.Geocoder();
         // Markers object   
         var markers ={};
+
+        $scope.isNewErrandPopup = false;
            
         function initializeContainers(){
             $scope.containers = mapService.getContainers();
@@ -123,7 +127,16 @@ geocoder.geocode({'address': container.address}, function (results, status) {
 })
 };
 
-        
+        $scope.openOrCloseNewErrandPopup = function(){
+                $scope.isNewErrandPopup = !$scope.isNewErrandPopup;
+
+                if($scope.isNewErrandPopup)
+                    $('#newErrandDiv').hide();
+                else
+                    $('#newErrandDiv').show();
+            }
+
+
         initializeMap();
         initializeContainers();
             
