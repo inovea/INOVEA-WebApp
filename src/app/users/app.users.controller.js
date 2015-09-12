@@ -66,10 +66,11 @@
         console.log('before add : ', $scope.newUser);
         $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
             $scope.getUsers();
+            $scope.closeUserAddView();
+             console.log("after add :", $scope.newUser);
         })
-        $scope.closeUserAddView();
-        $scope.newUser = {};
-        console.log("after add :", $scope.newUser);
+        
+       
 
     }
 
