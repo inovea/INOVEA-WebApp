@@ -63,7 +63,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat='container in containers | orderBy:sortType:sortReverse | filter:searchFish'>
+    <tr ng-repeat='container in containers | orderBy:sortType:sortReverse | filter:searchFish' ng-click="openContainerInfoView(container)">
       <!--ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}-->
       <td >{{container.name}}</td>
       <td>{{container.lat}}</td>
@@ -92,6 +92,79 @@
     </tr>
   </tfoot>
 </table>
+
+<!-- INFO CONTROLLER VIEW -->
+<div id="infoContainerModal" class="ui modal">
+  <div class="header">Informations</div>
+  <div class="content">
+    <form class="ui fluid form">
+
+      <div class="field">
+        <div class="ui pointing below label">
+          Nom
+        </div>
+        <div class="ui small icon input">
+          <input type="text" ng-if="isEditableInfoView" ng-model="selectedContainer.name">
+        </div>
+        <div ng-if="!isEditableInfoView">{{selectedContainer.name}}</div>
+      </div>
+
+      <div class="ui divider"></div>
+      <div class="field">
+        <div class="ui pointing below label">
+          Latitude
+        </div>
+        <div class="ui small icon input">
+          <input type="text" ng-if="isEditableInfoView" ng-model="selectedContainer.lat">
+        </div>
+          <div ng-if="!isEditableInfoView">{{selectedContainer.lat}}</div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui pointing below label">
+          Longitude
+        </div>
+        <div class="ui small icon input">
+          <input type="text" ng-if="isEditableInfoView" ng-model="selectedContainer.lng">
+        </div>
+          <div ng-if="!isEditableInfoView">{{selectedContainer.lng}}</div>
+        </div>
+
+      <div class="field">
+        <div class="ui pointing below label">
+          Adresse
+        </div>
+        <div class="ui small icon input">
+          <input type="text" ng-if="isEditableInfoView" ng-model="selectedContainer.address">
+        </div>
+          <div ng-if="!isEditableInfoView">{{selectedContainer.address}}</div>
+        </div>
+
+      <div class="field">
+        <div class="ui pointing below label">
+          Commentaire
+        </div>
+        <div class="ui small icon input">
+          <input type="text" ng-if="isEditableInfoView" ng-model="selectedContainer.commentaire">
+        </div>
+          <div ng-if="!isEditableInfoView">{{selectedContainer.commentaire}}</div>
+        </div>
+    </form>
+
+    <div class="ui buttons" ng-if="!isEditableInfoView">
+      <button class="ui grey button" ng-click="editInputs()">Modifier</button>
+      <div class="or" data-text="ou"></div>
+      <button class="ui red button">Supprimer</button>
+    </div>
+    <div class="ui buttons" ng-if="isEditableInfoView">
+      <button class="ui grey button" ng-click="editInputs()">Annuler</button>
+      <div class="or" data-text="ou"></div>
+      <button class="ui red button" ng-click="updateContainer">Enregistrer</button>
+    </div>
+
+  </div>
+
+
 
 <!--<div ng-repeat="user in users track by $index">
       {{user.firstname}} {{user.name}}

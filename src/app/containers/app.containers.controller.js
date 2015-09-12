@@ -11,6 +11,15 @@
     function ContainerCtrl($log, $scope, $http, $rootScope) {
        //var serverUrl = 'http://localhost:8080';
        var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
+       $scope.openContainerInfoView = function (selectedContainer){
+            $('#infoContainerModal')
+            .modal('setting','closable',false)
+            .modal('show')
+            ;
+            console.log(JSON.stringify(selectedContainer));
+            $scope.selectedContainer = selectedContainer;
+
+       };
 
        $scope.getContainers = function(id){
 
