@@ -1,44 +1,56 @@
 <inovea-menu title="Map"></inovea-menu>
 <div class="pageContent">
 	<!--input type="text" id="searchTxt" placeholder="Pays, ville, rue, cp..."></input>
-<button onclick="majSearch()">Rechercher</button-->
-<div id="actionButtons">
-        <button type="button" ng-click="openNewErrandPopup()">Créer</button>
-</div>
-
-<div id="mapLoader" class="ui dimmer">
-    <div class="ui text loader">Loading</div>
-  </div>
-
-
-<div id="newErrandDiv" hidden>
-
-   <div id="newErrandPopup">
-        <div id="newErrandPopupHeader" align="center">Nouveau trajet</div>
-        <div id="newErrandPopupContent" align="center">
-            Some content
+    <button onclick="majSearch()">Rechercher</button-->
+        <div id="actionButtons">
+            <button type="button" ng-click="openNewContainerPopup()">Créer conteneur</button>
+            <button type="button" ng-click="openNewErrandPopup()">Créer trajet</button>
         </div>
-        <div id="newErrandPopupFooter">
-            <div id="newErrandPopupFooterActions">
+
+        <div id="mapLoader" class="ui dimmer">
+            <div class="ui text loader">Loading</div>
+        </div>
+
+
+        <!-- 
+            New Container Popup
+         -->
+        <div id="newContainerDiv" hidden>
+            <div id="newContainerPopup">
+                okokokokokok
+            </div>       
+        </div>
+
+
+        <!-- 
+            New Errand Popup
+         -->
+        <div id="newErrandDiv" hidden>
+
+         <div id="newErrandPopup">
+            <div id="newErrandPopupHeader" align="center">Nouveau trajet</div>
+            <div id="newErrandPopupContent" align="center">
+                Some content
             </div>
-            <div id="newErrandPopupFooterButtons" align="center">
-                <div class="ui buttons">
-                    <button class="ui button" ng-click="closeNewErrandPopup()">Annuler</button>
-                    <div class="or" data-text="ou"></div>
-                    <button class="ui positive button">Créer</button>
+            <div id="newErrandPopupFooter">
+                <div id="newErrandPopupFooterActions">
+                </div>
+                <div id="newErrandPopupFooterButtons" align="center">
+                    <div class="ui buttons">
+                        <button class="ui button" ng-click="closeNewErrandPopup()">Annuler</button>
+                        <div class="or" data-text="ou"></div>
+                        <button class="ui positive button">Créer</button>
+                    </div>
                 </div>
             </div>
-            
         </div>
+    </div>
 
-   </div>
-</div>
-
-            <div id="map_canvas" style="width:100%; height:100%">
-            </div>
+    <div id="map_canvas" style="width:100%; height:100%">
+    </div>
 
 
-        
+
         <!--td class="containersList">
             <div class="containersListContent">
                 <h1>Liste de conteneurs</h1>
@@ -72,4 +84,4 @@
                 </div>
             </div>
         </td-->
-</div>
+    </div>

@@ -11,8 +11,7 @@
     function MapCtrl($log, $scope, $http, mapService) {
 
 
-        $('#newErrandPopup').draggabilly();
-        $('#actionButtons').draggabilly();
+       
 
         $("#mapLoader").addClass('active');
 
@@ -25,7 +24,7 @@
         var markers ={};
 
         $scope.isNewErrandPopup = false;
-           
+
         function initializeContainers(){
             $scope.containers = mapService.getContainers();
             $log.debug('[MapCtrl] $scope.containers : ' + JSON.stringify($scope.containers)); 
@@ -34,7 +33,7 @@
             }
 
 
-        
+
         }
 
         function initializeMap() {
@@ -75,7 +74,7 @@
 
     else if(container.state == 2)
     {
-     if (container.Errand_idErrand != 1)
+       if (container.Errand_idErrand != 1)
         image.url = '../img/busy_alert_container_marker.png'
     else
         image.url = '../img/alert_container_marker.png'
@@ -130,18 +129,43 @@ geocoder.geocode({'address': container.address}, function (results, status) {
 })
 };
 
-        $scope.openNewErrandPopup = function(){
-            $('#newErrandDiv').show();
-        }
 
-        $scope.closeNewErrandPopup = function(){
-            $('#newErrandDiv').hide();
-        }
+        
+
+        /*
+            Make popup draggable
+        */
+
+        $('#newContainerPopup').draggabilly();
+        $('#newErrandPopup').draggabilly();
+        $('#actionButtons').draggabilly();
 
 
+        /*
+            Open & Close popup
+        */
 
-        initializeMap();
-        initializeContainers();
             
-    	 }
-})();
+            $scope.openNewErrandPopup = function(){
+                $('#newErrandDiv').show();
+            }
+
+            $scope.closeNewErrandPopup = function(){
+                $('#newErrandDiv').hide();
+            }
+
+            $scope.openNewContainerPopup = function(){
+                $('#newContainerDiv').show();
+            }
+
+            $scope.closeNewContainerPopup = function(){
+                $('#newContainerDiv').hide();
+            }
+
+
+
+            initializeMap();
+            initializeContainers();
+            
+        }
+    })();

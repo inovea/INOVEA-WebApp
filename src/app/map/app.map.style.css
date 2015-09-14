@@ -27,9 +27,28 @@
 	background-color: #666970;
 }
 
+#newContainerDiv{
+	position:absolute;
+}
+
+#newContainerPopup{
+	margin-left: 70%;
+	position: absolute;
+	width:280px;
+	height:450px;
+	top: 10px; 
+	left: 10px; 
+	z-index: 99;
+	border-radius:4px;
+	background-color: #4791FF
+}
+
+
 #newErrandDiv { 
 	position:absolute;
 }
+
+
 
 #newErrandPopup { 
 	margin-left: 70%;
