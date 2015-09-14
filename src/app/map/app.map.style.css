@@ -27,6 +27,24 @@
 	background-color: #666970;
 }
 
+
+/*
+	All popups
+*/
+
+.popupHeader{
+	color:white;
+	padding-top: 10px;
+	font-size:24px;
+	font-weight: bold;
+	height: 50px;
+}
+
+
+
+/*
+	New Container Popup
+*/
 #newContainerDiv{
 	position:absolute;
 }
@@ -34,7 +52,7 @@
 #newContainerPopup{
 	margin-left: 70%;
 	position: absolute;
-	width:280px;
+	width:700px;
 	height:450px;
 	top: 10px; 
 	left: 10px; 
@@ -43,12 +61,23 @@
 	background-color: #4791FF
 }
 
+#newContainerPopupContent{
+	height : 320px;
+	background-color:white;
+}
 
-#newErrandDiv { 
-	position:absolute;
+#newContainerPopupFooter{
+	height:50px;
 }
 
 
+
+/*
+	New ErrandPopup
+*/
+#newErrandDiv { 
+	position:absolute;
+}
 
 #newErrandPopup { 
 	margin-left: 70%;
@@ -62,14 +91,6 @@
 	background-color: #4791FF
 }
 
-#newErrandPopupHeader{
-	color:white;
-	padding-top: 10px;
-	font-size:24px;
-	font-weight: bold;
-	height: 50px;
-}
-
 #newErrandPopupContent{
 	height : 300px;
 	background-color:white;
@@ -78,6 +99,7 @@
 #newErrandPopupFooter{
 	height:100px;
 }
+
 
 #newErrandPopupFooterActions{
 	height:60px;
