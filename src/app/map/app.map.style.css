@@ -52,8 +52,8 @@
 #newContainerPopup{
 	margin-left: 70%;
 	position: absolute;
-	width:700px;
-	height:450px;
+	width:900px;
+	height:550px;
 	top: 10px; 
 	left: 10px; 
 	z-index: 99;
@@ -62,12 +62,17 @@
 }
 
 #newContainerPopupContent{
-	height : 320px;
+	height : 440px;
+	padding: 10px;
 	background-color:white;
 }
 
 #newContainerPopupFooter{
 	height:50px;
+}
+
+#newContainerPopupFooter{
+	margin-top: 15px;
 }
 
 

@@ -15,17 +15,59 @@
         <!-- 
             New Container Popup
         -->
-        <div id="newContainerDiv">
+        <div id="newContainerDiv" hidden>
             <div id="newContainerPopup">
                 <div class="popupHeader" align="center">Nouveau conteneur</div>
-                <div id="newContainerPopupContent" align="center">
-                    Some content
-                </div>
-                <div id="newContainerPopupFooter"></div>
-                
+                <div id="newContainerPopupContent">
+                    <form class="ui form">
+                      <div class="field">
+                        <label>Nom</label>
+                        <input type="text" name="first-name">
+                    </div>
+                    <div class="field">
+                        <label>Adresse</label>
+                        <input type="text" name="last-name">
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Code Postal</label>
+                            <input type="text" name="last-name">
+                        </div>
 
-            </div>       
+                        <div class="field">
+                            <label>Ville</label>
+                            <input type="text" name="last-name">
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                          <label>Type</label>
+                          <select class="ui fluid dropdown">
+                            <option value="a">Vêtements</option>
+                            <option value="b">Ordures ménagères</option>
+                            <option value="c">Plastiques</option>
+                            <option value="d">Verre</option>
+                            <button class="ui button" type="submit">Submit</button>
+                        </select>
+                    </div>
+                    <div class="field">
+                            <label>Commentaire</label>
+                            <textarea></textarea>
+                    </div>
+                </div>
+            </form>
         </div>
+        <div id="newContainerPopupFooter" align="center">
+            <div class="ui buttons">
+                <button class="ui button" ng-click="closeNewContainerPopup()">Annuler</button>
+                <div class="or" data-text="ou"></div>
+                <button class="ui positive button">Créer</button>
+            </div>
+        </div>
+
+
+    </div>       
+</div>
 
 
         <!-- 
