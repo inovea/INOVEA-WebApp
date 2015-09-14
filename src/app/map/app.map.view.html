@@ -8,7 +8,7 @@
 
 
 <div id="actionButtons">
-        <button type="button" ng-click="openOrCloseNewErrandPopup()">Créer</button>
+        <button type="button" ng-click="openNewErrandPopup()">Créer</button>
 </div>
 <div id="newErrandDiv">
    <div id="newErrandPopup">
@@ -21,7 +21,7 @@
             </div>
             <div id="newErrandPopupFooterButtons" align="center">
                 <div class="ui buttons">
-                    <button class="ui button">Annuler</button>
+                    <button class="ui button" ng-click="closeNewErrandPopup()">Annuler</button>
                     <div class="or" data-text="ou"></div>
                     <button class="ui positive button">Créer</button>
                 </div>

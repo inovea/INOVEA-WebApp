@@ -127,14 +127,14 @@ geocoder.geocode({'address': container.address}, function (results, status) {
 })
 };
 
-        $scope.openOrCloseNewErrandPopup = function(){
-                $scope.isNewErrandPopup = !$scope.isNewErrandPopup;
+        $scope.openNewErrandPopup = function(){
+            $('#newErrandDiv').show();
+        }
 
-                if($scope.isNewErrandPopup)
-                    $('#newErrandDiv').hide();
-                else
-                    $('#newErrandDiv').show();
-            }
+        $scope.closeNewErrandPopup = function(){
+            $('#newErrandDiv').hide();
+        }
+
 
 
         initializeMap();
