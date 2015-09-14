@@ -5,7 +5,14 @@
 <div id="actionButtons">
         <button type="button" ng-click="openNewErrandPopup()">Créer</button>
 </div>
-<div id="newErrandDiv">
+
+<div id="mapLoader" class="ui dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+
+
+<div id="newErrandDiv" hidden>
+
    <div id="newErrandPopup">
         <div id="newErrandPopupHeader" align="center">Nouveau trajet</div>
         <div id="newErrandPopupContent" align="center">

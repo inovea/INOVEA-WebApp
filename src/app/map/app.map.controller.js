@@ -14,7 +14,7 @@
         $('#newErrandPopup').draggabilly();
         $('#actionButtons').draggabilly();
 
-
+        $("#mapLoader").addClass('active');
 
 
         //Map object
@@ -30,8 +30,11 @@
             $scope.containers = mapService.getContainers();
             $log.debug('[MapCtrl] $scope.containers : ' + JSON.stringify($scope.containers)); 
             for(var index in $scope.containers){
-                goPlaceMarker(index, $scope.containers[index]);
+                goPlaceMarker(index, $scope.containers[index]);       
             }
+
+
+        
         }
 
         function initializeMap() {
@@ -47,9 +50,9 @@
         function goPlaceMarker(i, container) {
             setTimeout(function() {
                 placeMarker(container);
-                /*if(i == containers.length - 1){
-                    stopSpinner();
-                }*/
+                if(i == $scope.containers.length - 1){
+                    $("#mapLoader").removeClass('active');
+                }
 
             }, i * 500);
         }
