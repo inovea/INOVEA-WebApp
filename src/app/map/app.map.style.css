@@ -1,6 +1,6 @@
-.menuIcon{
-	width : 40px;
-	height: 40px;
+.menuIcon {
+    width: 40px;
+    height: 40px;
 }
 
 .pageContent {
@@ -9,108 +9,103 @@
     padding: 0px
 }
 
-#actionButtons{
-	width:200px;
-	height:40px;
-	background-color: #4791FF;
-	position:absolute;
-	z-index: 99;
-	border-radius: 15px;
+#actionButtons {
+    width: 200px;
+    height: 40px;
+    background-color: #4791FF;
+    position: absolute;
+    z-index: 99;
+    border-radius: 15px;
 }
 
 .examplediv {
-  position:absolute;
-  border:solid 5px #000;
-}
-#map_canvas {
-	height: 100%;
-	background-color: #666970;
+    position: absolute;
+    border: solid 5px #000;
 }
 
+#map_canvas {
+    height: 100%;
+    background-color: #666970;
+}
 
 /*
 	All popups
 */
 
-.popupHeader{
-	color:white;
-	padding-top: 10px;
-	font-size:24px;
-	font-weight: bold;
-	height: 50px;
+.popupHeader {
+    color: white;
+    padding-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    height: 50px;
 }
-
-
 
 /*
 	New Container Popup
 */
-#newContainerDiv{
-	position:absolute;
+#newContainerDiv {
+    position: absolute;
 }
 
-#newContainerPopup{
-	margin-left: 70%;
-	position: absolute;
-	width:900px;
-	height:550px;
-	top: 10px; 
-	left: 10px; 
-	z-index: 99;
-	border-radius:4px;
-	background-color: #4791FF
+#newContainerPopup {
+    margin-left: 70%;
+    position: absolute;
+    width: 900px;
+    height: 550px;
+    top: 10px;
+    left: 10px;
+    z-index: 99;
+    border-radius: 4px;
+    background-color: #4791FF
 }
 
-#newContainerPopupContent{
-	height : 440px;
-	padding: 10px;
-	background-color:white;
+#newContainerPopupContent {
+    height: 440px;
+    padding: 10px;
+    background-color: white;
 }
 
-#newContainerPopupFooter{
-	height:50px;
+#newContainerPopupFooter {
+    height: 50px;
 }
 
-#newContainerPopupFooter{
-	margin-top: 15px;
+#newContainerPopupFooter {
+    margin-top: 15px;
 }
-
-
 
 /*
 	New ErrandPopup
 */
-#newErrandDiv { 
-	position:absolute;
+#newErrandDiv {
+    position: absolute;
 }
 
-#newErrandPopup { 
-	margin-left: 70%;
-	position: absolute;
-	width:280px;
-	height:450px;
-	top: 10px; 
-	left: 10px; 
-	z-index: 99;
-	border-radius:4px;
-	background-color: #4791FF
+#newErrandPopup {
+    margin-left: 70%;
+    position: absolute;
+    width: 280px;
+    height: 450px;
+    top: 10px;
+    left: 10px;
+    z-index: 99;
+    border-radius: 4px;
+    background-color: #4791FF
 }
 
-#newErrandPopupContent{
-	height : 300px;
-	background-color:white;
+#newErrandPopupContent {
+    height: 300px;
+    background-color: white;
 }
 
-#newErrandPopupFooter{
-	height:100px;
+#newErrandPopupFooter {
+    height: 100px;
 }
 
-
-#newErrandPopupFooterActions{
-	height:60px;
+#newErrandPopupFooterActions {
+    height: 60px;
 }
 
-#newErrandPopupFooterButtons{
-	height:40px;
-	vertical-align: middle;
+#newErrandPopupFooterButtons {
+    height: 40px;
+    vertical-align: middle;
 }

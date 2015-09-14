@@ -3,21 +3,21 @@
 
     angular
         .module('app', [
-        	'ngRoute'
+            'ngRoute'
         ])
-        .config(['$routeProvider', function($routeProvider) {
+        .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
                 .when('/connexion', {
                     templateUrl: 'app/connexion/app.connexion.view.html',
-                    controller : 'ConnexionCtrl'
+                    controller: 'ConnexionCtrl'
                 })
                 .when('/map', {
                     templateUrl: 'app/map/app.map.view.html',
-                    controller : 'MapCtrl'
+                    controller: 'MapCtrl'
                 })
                 .when('/usersView', {
                     templateUrl: 'app/users/app.users.view.html',
-                    controller : 'MainCtrl'
+                    controller: 'MainCtrl'
                 })
 
                 .otherwise({

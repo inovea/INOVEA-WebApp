@@ -17,7 +17,7 @@
 
              scope.openMenu = function(){
                 $('.ui.sidebar').sidebar('toggle')
-            }; 
+            };
 
         }
     };

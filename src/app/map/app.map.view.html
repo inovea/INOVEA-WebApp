@@ -1,26 +1,26 @@
 <inovea-menu title="Map"></inovea-menu>
 <div class="pageContent">
-	<!--input type="text" id="searchTxt" placeholder="Pays, ville, rue, cp..."></input>
+    <!--input type="text" id="searchTxt" placeholder="Pays, ville, rue, cp..."></input>
     <button onclick="majSearch()">Rechercher</button-->
-        <div id="actionButtons">
-            <button type="button" ng-click="openNewContainerPopup()">Créer conteneur</button>
-            <button type="button" ng-click="openNewErrandPopup()">Créer trajet</button>
-        </div>
+    <div id="actionButtons">
+        <button type="button" ng-click="openNewContainerPopup()">Créer conteneur</button>
+        <button type="button" ng-click="openNewErrandPopup()">Créer trajet</button>
+    </div>
 
-        <div id="mapLoader" class="ui dimmer">
-            <div class="ui text loader">Loading</div>
-        </div>
+    <div id="mapLoader" class="ui dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
 
 
-        <!-- 
-            New Container Popup
-        -->
-        <div id="newContainerDiv" hidden>
-            <div id="newContainerPopup">
-                <div class="popupHeader" align="center">Nouveau conteneur</div>
-                <div id="newContainerPopupContent">
-                    <form class="ui form">
-                      <div class="field">
+    <!--
+        New Container Popup
+    -->
+    <div id="newContainerDiv" hidden>
+        <div id="newContainerPopup">
+            <div class="popupHeader" align="center">Nouveau conteneur</div>
+            <div id="newContainerPopupContent">
+                <form class="ui form">
+                    <div class="field">
                         <label>Nom</label>
                         <input type="text" name="first-name">
                     </div>
@@ -41,41 +41,41 @@
                     </div>
                     <div class="two fields">
                         <div class="field">
-                          <label>Type</label>
-                          <select class="ui fluid dropdown">
-                            <option value="a">Vêtements</option>
-                            <option value="b">Ordures ménagères</option>
-                            <option value="c">Plastiques</option>
-                            <option value="d">Verre</option>
-                            <button class="ui button" type="submit">Submit</button>
-                        </select>
-                    </div>
-                    <div class="field">
+                            <label>Type</label>
+                            <select class="ui fluid dropdown">
+                                <option value="a">Vêtements</option>
+                                <option value="b">Ordures ménagères</option>
+                                <option value="c">Plastiques</option>
+                                <option value="d">Verre</option>
+                                <button class="ui button" type="submit">Submit</button>
+                            </select>
+                        </div>
+                        <div class="field">
                             <label>Commentaire</label>
                             <textarea></textarea>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
-        <div id="newContainerPopupFooter" align="center">
-            <div class="ui buttons">
-                <button class="ui button" ng-click="closeNewContainerPopup()">Annuler</button>
-                <div class="or" data-text="ou"></div>
-                <button class="ui positive button">Créer</button>
+                </form>
             </div>
+            <div id="newContainerPopupFooter" align="center">
+                <div class="ui buttons">
+                    <button class="ui button" ng-click="closeNewContainerPopup()">Annuler</button>
+                    <div class="or" data-text="ou"></div>
+                    <button class="ui positive button">Créer</button>
+                </div>
+            </div>
+
+
         </div>
+    </div>
 
 
-    </div>       
-</div>
+    <!--
+        New Errand Popup
+    -->
+    <div id="newErrandDiv" hidden>
 
-
-        <!-- 
-            New Errand Popup
-        -->
-        <div id="newErrandDiv" hidden>
-
-           <div id="newErrandPopup">
+        <div id="newErrandPopup">
             <div class="popupHeader" align="center">Nouveau trajet</div>
             <div id="newErrandPopupContent" align="center">
                 Some content
@@ -98,38 +98,37 @@
     </div>
 
 
-
-        <!--td class="containersList">
-            <div class="containersListContent">
-                <h1>Liste de conteneurs</h1>
-                <br><br>
-                <div id="table"></div>
+    <!--td class="containersList">
+        <div class="containersListContent">
+            <h1>Liste de conteneurs</h1>
+            <br><br>
+            <div id="table"></div>
+        </div>
+        <div>
+            <div>
+                <span id="errandDistance"></span><span id="errandDistanceDifference"></span>
             </div>
             <div>
-                <div>
-                    <span id="errandDistance"></span><span id="errandDistanceDifference"></span>
-                </div>
-                <div>
-                    <span id="errandHours"></span><span id="errandMinutes"></span> <span id="errandHoursDifference"></span><span id="errandMinutesDifference"></span>
-                </div>
-                <br>
-                <div>
-                    Date : <input class="datepicker" onclick="pickerDate()" type="text"></input>
-                </div>
-                <br>
-                <div>
-                    Heure : <input class="timepicker" onclick="pickerTime()" type="text"></input>
-                </div>
-                <br>
-                <div>
-                    <INPUT id="optimizeCheckbox" onclick="optimizeItinerary()" type="checkbox" name="choix1" value="1"> Optimiser les points interm&eacute;diaires
-                </div>
-                <br>
-                <span>Attribuer la course &agrave;</span>
-                <select id="courierList"></select> 
-                <div class="createButton">
-                    <button onclick="createErrand()">Cr&eacute;er la course</button>
-                </div>
+                <span id="errandHours"></span><span id="errandMinutes"></span> <span id="errandHoursDifference"></span><span id="errandMinutesDifference"></span>
             </div>
-        </td-->
-    </div>
+            <br>
+            <div>
+                Date : <input class="datepicker" onclick="pickerDate()" type="text"></input>
+            </div>
+            <br>
+            <div>
+                Heure : <input class="timepicker" onclick="pickerTime()" type="text"></input>
+            </div>
+            <br>
+            <div>
+                <INPUT id="optimizeCheckbox" onclick="optimizeItinerary()" type="checkbox" name="choix1" value="1"> Optimiser les points interm&eacute;diaires
+            </div>
+            <br>
+            <span>Attribuer la course &agrave;</span>
+            <select id="courierList"></select>
+            <div class="createButton">
+                <button onclick="createErrand()">Cr&eacute;er la course</button>
+            </div>
+        </div>
+    </td-->
+</div>
