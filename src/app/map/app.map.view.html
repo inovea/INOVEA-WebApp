@@ -6,12 +6,12 @@
         <button type="button" ng-click="openNewContainerPopup()">Créer conteneur</button>
         <button type="button" ng-click="openNewErrandPopup()">Créer trajet</button>
     </div>
-
+    <!--
+        Loader 
+    -->
     <div id="mapLoader" class="ui dimmer">
         <div class="ui text loader">Loading</div>
     </div>
-
-
     <!--
         New Container Popup
     -->
@@ -33,7 +33,6 @@
                             <label>Code Postal</label>
                             <input type="text" name="last-name">
                         </div>
-
                         <div class="field">
                             <label>Ville</label>
                             <input type="text" name="last-name">
@@ -64,17 +63,12 @@
                     <button class="ui positive button">Créer</button>
                 </div>
             </div>
-
-
         </div>
     </div>
-
-
     <!--
         New Errand Popup
     -->
     <div id="newErrandDiv" hidden>
-
         <div id="newErrandPopup">
             <div class="popupHeader" align="center">Nouveau trajet</div>
             <div id="newErrandPopupContent" align="center">
@@ -93,11 +87,8 @@
             </div>
         </div>
     </div>
-
     <div id="map_canvas" style="width:100%; height:100%">
     </div>
-
-
     <!--td class="containersList">
         <div class="containersListContent">
             <h1>Liste de conteneurs</h1>

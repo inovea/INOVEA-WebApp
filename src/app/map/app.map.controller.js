@@ -17,12 +17,12 @@
          Variables declaration
          */
 
-        var map;
         /* -- Map object -- */
-        var markers = {};
+        var map;
         /* -- Markers object  -- */
-        var geocoder = new google.maps.Geocoder();
+        var markers = {};
         /* -- To translate String adresse in Google Format adress with position (ex : 61.1648, 4.58058) -- */
+        var geocoder = new google.maps.Geocoder();
 
 
         /*
@@ -149,8 +149,6 @@
         /*
          Open & Close popup
          */
-
-
         $scope.openNewErrandPopup = function () {
             $('#newErrandDiv').show();
         }
@@ -167,13 +165,14 @@
             $('#newContainerDiv').hide();
         }
 
-        /*
-         From 'Select' element to dropdown
-         */
 
+        /* -- From 'Select' element to dropdown -- */
         $('select.dropdown').dropdown();
 
 
+        /*
+            Launch initialization
+        */ 
         initializeMap();
         initializeContainers();
 
