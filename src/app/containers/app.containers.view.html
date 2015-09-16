@@ -95,7 +95,10 @@
 
 <!-- INFO CONTROLLER VIEW -->
 <div id="infoContainerModal" class="ui modal">
-  <div class="header">Informations</div>
+  <div class="header">Informations
+      <i class="remove red icon exitIcon" ng-click="closeContainerInfoView()"></i>
+  </div>
+   
   <div class="content">
     <form class="ui fluid form">
 
@@ -119,7 +122,8 @@
         </div>
           <div ng-if="!isEditableInfoView">{{selectedContainer.lat}}</div>
         </div>
-      </div>
+      
+      <div class="ui divider"></div>
       <div class="field">
         <div class="ui pointing below label">
           Longitude
@@ -130,6 +134,7 @@
           <div ng-if="!isEditableInfoView">{{selectedContainer.lng}}</div>
         </div>
 
+      <div class="ui divider"></div>
       <div class="field">
         <div class="ui pointing below label">
           Adresse
@@ -140,6 +145,7 @@
           <div ng-if="!isEditableInfoView">{{selectedContainer.address}}</div>
         </div>
 
+      <div class="ui divider"></div>  
       <div class="field">
         <div class="ui pointing below label">
           Commentaire
@@ -159,7 +165,7 @@
     <div class="ui buttons" ng-if="isEditableInfoView">
       <button class="ui grey button" ng-click="editInputs()">Annuler</button>
       <div class="or" data-text="ou"></div>
-      <button class="ui red button" ng-click="updateContainer()">Enregistrer</button>
+      <button class="ui green button" ng-click="updateContainer()">Enregistrer</button>
     </div>
 
   </div>
