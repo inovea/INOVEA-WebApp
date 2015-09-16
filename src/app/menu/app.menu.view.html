@@ -1,9 +1,12 @@
  <div class="ui left demo vertical inverted sidebar labeled icon menu">
-    <a class="item">
+    <a class="item" ng-click="goToView('/map')">
       <img class="menuIcon" src="../img/map.png">
     </a>
-    <a class="item">
+    <a class="item" ng-click="goToView('/usersView')">
       <img class="menuIcon" src="../img/user.png">
+    </a>
+    <a class="item" ng-click="goToView('/containersView')">
+      <img class="menuIcon" src="../img/container.png">
     </a>
   </div>
   <div class="pusher">

@@ -1,4 +1,91 @@
-<div ng-repeat="user in users track by $index">
+<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
+
+
+<inovea-menu title="Utilisateurs"></inovea-menu>
+
+<form>
+    <!--<div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Rechercher un utilisateur" ng-model="searchFish">
+      </div>      
+    </div>-->
+<div class="ui fluid category search">
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchFish">
+    <i class="search icon"></i>
+  </div>
+<div class="results"></div>
+
+</form>
+
+<table class="ui fixed striped selectable padded inverted grey table">
+  <thead>
+    <tr>
+      <th>
+        <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">Nom
+          <i class="sort ascending icon" ng-show="sortType == 'name' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'name' && !sortReverse"></i>
+          <!--<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>-->
+        </a>
+      </th>
+      <th>
+        <a href="" ng-click="sortType = 'firstname'; sortReverse = !sortReverse">Prenom
+          <i class="sort ascending icon" ng-show="sortType == 'firstname' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'firstname' && !sortReverse"></i>
+        </a>  
+      </th>
+      <th>
+        <a href="" ng-click="sortType = 'mail'; sortReverse = !sortReverse">Mail
+          <i class="sort ascending icon" ng-show="sortType == 'mail' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'mail' && !sortReverse"></i>
+        </a> 
+      </th>
+      <th>
+        <a href="" ng-click="sortType = 'phone'; sortReverse = !sortReverse">Telephone
+          <i class="sort ascending icon" ng-show="sortType == 'phone' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'phone' && !sortReverse"></i>
+        </a>
+      </th>
+      <th>
+        <a href="" ng-click="sortType = 'admin'; sortReverse = !sortReverse">Administrateur
+          <i class="sort ascending icon" ng-show="sortType == 'admin' && sortReverse"></i>
+          <i class="sort descending icon" ng-show="sortType == 'admin' && !sortReverse"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat='user in users | orderBy:sortType:sortReverse | filter:searchFish'>
+      <!--ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}-->
+      <td >{{user.name}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.mail}}</td>
+      <td>{{user.phone}}</td>
+      <td class="center aligned"><i class="large green checkmark icon" ng-if="user.admin==true"></i></td>
+    </tr>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th>
+        <div class="ui fluid category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchFish">
+            <i class="search icon"></i>
+          </div>
+        <div class="results"></div>
+      </th>
+      <th colspan="5">
+        <div class="ui right floated small primary labeled icon button">
+          <i class="user icon"></i> Ajouter
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+
+<!--<div ng-repeat="user in users track by $index">
       {{user.firstname}} {{user.name}}
       <i class="remove icon red" ng-click="deleteUser(user._id)"></i>
       <i class="write icon" ng-click="setUpdateUser(user._id, user.name, user.firstname)"></i>
@@ -14,4 +101,4 @@
     <div>
       <button ng-if="idSelectedUser == '' " class="ui button small green" ng-click="addUser()">+ Add</button>
       <button ng-if="idSelectedUser != '' " class="ui button small blue" ng-click="updateUser()">Update</button>
-</div>
+</div>-->

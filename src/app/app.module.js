@@ -5,19 +5,23 @@
         .module('app', [
             'ngRoute'
         ])
-        .config(['$routeProvider', function ($routeProvider) {
+        .config(['$routeProvider', function($routeProvider) {
             $routeProvider
                 .when('/connexion', {
                     templateUrl: 'app/connexion/app.connexion.view.html',
-                    controller: 'ConnexionCtrl'
+                    controller : 'ConnexionCtrl'
                 })
                 .when('/map', {
                     templateUrl: 'app/map/app.map.view.html',
-                    controller: 'MapCtrl'
+                    controller : 'MapCtrl'
                 })
                 .when('/usersView', {
                     templateUrl: 'app/users/app.users.view.html',
-                    controller: 'MainCtrl'
+                    controller : 'UserCtrl'
+                })
+                .when('/containersView', {
+                    templateUrl: 'app/containers/app.containers.view.html',
+                    controller : 'ContainerCtrl'
                 })
 
                 .otherwise({
