@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('app')
-        .controller('MapCtrl', MapCtrl);
+    .module('app')
+    .controller('MapCtrl', MapCtrl);
 
     MapCtrl.$inject = ['$log', '$scope', '$http', 'mapService'];
 
@@ -17,30 +17,34 @@
          Variables declaration
          */
 
-        /* -- Map object -- */
-        var map;
-        /* -- Markers object  -- */
-        var markers = {};
-        /* -- To translate String adresse in Google Format adress with position (ex : 61.1648, 4.58058) -- */
-        var geocoder = new google.maps.Geocoder();
+         /* -- Map object -- */
+         var map;
+         /* -- Markers object  -- */
+         var markers = {};
+         /* -- To translate String adresse in Google Format adress with position (ex : 61.1648, 4.58058) -- */
+         var geocoder = new google.maps.Geocoder();
 
 
         /*
          Function to get Containers and place them one by one
          */
-        function initializeContainers() {
-            $scope.containers = mapService.getContainers();
-            $log.debug('[MapCtrl] $scope.containers : ' + JSON.stringify($scope.containers));
-            for (var index in $scope.containers) {
-                goPlaceMarker(index, $scope.containers[index]);
-            }
+         function initializeContainers() {
+            mapService.getContainers().then(function(result){
+
+                $scope.containers = result.data;
+
+                $log.debug('[MapCtrl] $scope.containers : ' + JSON.stringify($scope.containers));
+                for (var index in $scope.containers) {
+                    goPlaceMarker(index, $scope.containers[index]);
+                }
+            });
         }
 
 
         /*
          Function to instantiate map Object
          */
-        function initializeMap() {
+         function initializeMap() {
             // console.log('initializeMap called');
             var mapOptions = {
                 zoom: 10,
@@ -48,13 +52,15 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            initializeContainers();
         }
 
 
         /*
          Function to place markers one by one with a timeout (fix Google Map errors caused by multiple webservice calls)
          */
-        function goPlaceMarker(i, container) {
+         function goPlaceMarker(i, container) {
             setTimeout(function () {
                 placeMarker(container);
                 if (i == $scope.containers.length - 1) {
@@ -68,27 +74,27 @@
         /*
          Function to place a marker on the map
          */
-        var placeMarker = function (container) {
+         var placeMarker = function (container) {
 
             var image = {
-                url: '../img/empty_container_marker.png'
+                url: 'img/empty_container_marker.png'
             };
 
             if (container.state == 1) {
                 if (container.Errand_idErrand != 1)
-                    image.url = '../img/busy_full_container_marker.png'
+                    image.url = 'img/busy_full_container_marker.png'
                 else
-                    image.url = '../img/full_container_marker.png'
+                    image.url = 'img/full_container_marker.png'
             }
 
             else if (container.state == 2) {
                 if (container.Errand_idErrand != 1)
-                    image.url = '../img/busy_alert_container_marker.png'
+                    image.url = 'img/busy_alert_container_marker.png'
                 else
-                    image.url = '../img/alert_container_marker.png'
+                    image.url = 'img/alert_container_marker.png'
             }
             else if (container.Errand_idErrand != 1)
-                image.url = '../img/busy_empty_container_marker.png'
+                image.url = 'img/busy_empty_container_marker.png'
 
 
             geocoder.geocode({'address': container.address}, function (results, status) {
@@ -134,22 +140,22 @@
                 }
 
             })
-        };
+};
 
 
         /*
          Make popup draggable
          */
 
-        $('#newContainerPopup').draggabilly();
-        $('#newErrandPopup').draggabilly();
-        $('#actionButtons').draggabilly();
+         $('#newContainerPopup').draggabilly();
+         $('#newErrandPopup').draggabilly();
+         $('#actionButtons').draggabilly();
 
 
         /*
          Open & Close popup
          */
-        $scope.openNewErrandPopup = function () {
+         $scope.openNewErrandPopup = function () {
             $('#newErrandDiv').show();
         }
 
@@ -172,9 +178,9 @@
 
         /*
             Launch initialization
-        */ 
-        initializeMap();
-        initializeContainers();
+            */ 
+            initializeMap();
+            
 
-    }
-})();
+        }
+    })();

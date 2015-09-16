@@ -59,20 +59,17 @@
 
         function getContainers(obj) {
 
-            /*  if(obj){
+            /* if(obj){
              $http.get(serverUrl+'/containers', obj).success(function(result){
              return result;
              })
              }
 
-             else{
-             $http.get(serverUrl+'/containers').success(function(result){
+             else{*/
+             return $http.get(serverUrl+'/containers').success(function(result){
              return result;
-             })
-             }*/
-            return containers;
+             });
+             //}
         }
-
-
     }
 })();
