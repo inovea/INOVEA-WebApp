@@ -57,9 +57,6 @@
 
     $scope.addUser = function (){
 
-    
-
-        $scope.editInputs();
         console.log('[addUser called] : ',$scope.newUser);
         usersService.addUser($scope.newUser).then(function(result){
             console.log('Controller AddUsers : ', JSON.stringify(result));
