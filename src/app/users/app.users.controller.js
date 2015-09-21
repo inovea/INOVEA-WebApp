@@ -25,9 +25,11 @@
         $scope.selectedUser = selectedUser;
     };
     $scope.closeUserInfoView = function (selectedUser) {
+
         $('#infoUserModal')
         .modal('hide')
         ;
+        $scope.isEditableInfoView = false;
     };
 
 
@@ -42,6 +44,7 @@
         $('#addUserModal')
         .modal('hide')
         ;
+        $scope.newUser = {};
     }
 
     $scope.getUsers = function(id){

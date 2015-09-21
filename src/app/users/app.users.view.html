@@ -20,6 +20,7 @@ Loader
     <div class="ui right floated small primary labeled icon button" ng-click="openUserAddView()">
               <i class="user icon"></i> Ajouter
             </div>
+      </div>
 </div>
 
   <!-- TABLEAUX D'UTILISATEUR -->
@@ -96,33 +97,29 @@ Loader
       </div>
       <div class="content">
         <form class="ui fluid form">
+            <div class="two fields">
+                <div class="field">
+                    <label>Nom</label>
+                    <div class="ui small icon input">
+                        <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.name">
+                    </div>
+                    <div ng-if="!isEditableInfoView">{{selectedUser.name}}</div>
+                </div>
 
-          <div class="field">
-            <div class="ui pointing below label">
-              Nom
+                <div class="ui divider"></div>
+                <div class="field">
+                    <label>Prénom</label>
+                    <div class="ui small icon input">
+                        <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.firstname">
+                    </div>
+                    <div ng-if="!isEditableInfoView">{{selectedUser.firstname}}</div>
+                </div>
             </div>
-            <div class="ui small icon input">
-              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.name">
-            </div>
-            <div ng-if="!isEditableInfoView">{{selectedUser.name}}</div>
-          </div>
 
-          <div class="ui divider"></div>
-          <div class="field">
-            <div class="ui pointing below label">
-              Prenom
-            </div>
-            <div class="ui small icon input">
-              <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.firstname">
-            </div>
-            <div ng-if="!isEditableInfoView">{{selectedUser.firstname}}</div>
-          </div>
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Mail
-            </div>
+              <label>Mail</label>
             <div class="ui small icon input">
               <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.mail">
             </div>
@@ -131,9 +128,7 @@ Loader
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Mot de passe
-            </div>
+              <label>Mot de passe</label>
             <div class="ui small icon input">
               <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.password">
             </div>
@@ -142,9 +137,7 @@ Loader
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Telephone
-            </div>
+              <label>Téléphone</label>
             <div class="ui small icon input">
               <input type="text" ng-if="isEditableInfoView" ng-model="selectedUser.phone">
             </div>
@@ -165,16 +158,18 @@ Loader
           <div class="ui divider"></div>
         </form>
 
-        <div class="ui buttons" ng-if="!isEditableInfoView">
-          <button class="ui grey button" ng-click="editInputs()">Modifier</button>
-          <div class="or" data-text="ou"></div>
-          <button class="ui red button" ng-click="deleteUser()">Supprimer</button>
-        </div>
-        <div class="ui buttons" ng-if="isEditableInfoView">
-          <button class="ui grey button" ng-click="editInputs()">Annuler</button>
-          <div class="or" data-text="ou"></div>
-          <button class="ui green button" ng-click="updateUser()">Enregistrer</button>
-        </div>
+          <div align="center">
+              <div class="ui buttons" ng-if="!isEditableInfoView">
+                  <button class="ui grey button" ng-click="editInputs()">Modifier</button>
+                  <div class="or" data-text="ou"></div>
+                  <button class="ui red button" ng-click="deleteUser()">Supprimer</button>
+              </div>
+              <div class="ui buttons" ng-if="isEditableInfoView">
+                  <button class="ui grey button" ng-click="editInputs()">Annuler</button>
+                  <div class="or" data-text="ou"></div>
+                  <button class="ui green button" ng-click="updateUser()">Enregistrer</button>
+              </div>
+          </div>
 
       </div>
 
@@ -182,36 +177,33 @@ Loader
     <div id="addUserModal" class="ui modal">
 
         <div class="header">
-        Nouveau utilisateur
+        Nouvel utilisateur
       <i class="remove red icon exitIcon" ng-click="closeUserAddView()"></i>
     </div>
       <div class="content">
           <form class="ui fluid form">
+        <div class="two fields">
+            <div class="field">
+                <label> Nom</label>
+                <div class="ui small icon input">
+                    <input type="text" ng-model="newUser.name">
+                </div>
+            </div>
 
-          <div class="field">
-            <div class="ui pointing below label">
-              Nom
+            <div class="ui divider"></div>
+            <div class="field">
+                <label>Prénom</label>
+                <div class="ui small icon input">
+                    <input type="text" ng-model="newUser.firstname">
+                </div>
             </div>
-            <div class="ui small icon input">
-              <input type="text" ng-model="newUser.name">
-            </div>
-          </div>
+
+        </div>
+
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Prenom
-            </div>
-            <div class="ui small icon input">
-              <input type="text" ng-model="newUser.firstname">
-            </div>
-          </div>
-
-          <div class="ui divider"></div>
-          <div class="field">
-            <div class="ui pointing below label">
-              Mail
-            </div>
+              <label>Mail</label>
             <div class="ui small icon input">
               <input type="text" ng-model="newUser.mail">
             </div>
@@ -219,20 +211,16 @@ Loader
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Mot de passe
-            </div>
-            <div class="ui small icon input">
+              <label>Mot de passe</label>
+              <div class="ui small icon input">
               <input type="text" ng-model="newUser.password">
             </div>
           </div>
 
           <div class="ui divider"></div>
           <div class="field">
-            <div class="ui pointing below label">
-              Telephone
-            </div>
-            <div class="ui small icon input">
+              <label>Téléphone</label>
+              <div class="ui small icon input">
               <input type="text" ng-model="newUser.phone">
             </div>
           </div>
@@ -245,14 +233,13 @@ Loader
           
           <div class="ui divider"></div>
         </form>
-
-      
-        <div class="ui buttons">
-          <button class="ui grey button" ng-click="closeUserAddView()">Annuler</button>
-          <div class="or" data-text="ou"></div>
-          <button class="ui green button" ng-click="addUser()">Valider</button>
+        <div align="center">
+            <div class="ui buttons">
+                <button class="ui grey button" ng-click="closeUserAddView()">Annuler</button>
+                <div class="or" data-text="ou"></div>
+                <button class="ui green button" ng-click="addUser()">Valider</button>
+            </div>
         </div>
-
-      </div>  
-
+      </div>
+    </div>
 </div>
