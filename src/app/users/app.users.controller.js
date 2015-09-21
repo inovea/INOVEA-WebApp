@@ -60,6 +60,7 @@
         $http.post(URLSERVER+'/users', $scope.newUser).success(function(data, status) {
             $scope.getUsers();
             $scope.closeUserAddView();
+            $scope.newUser = null;
              console.log("after add :", $scope.newUser);
         })
         
