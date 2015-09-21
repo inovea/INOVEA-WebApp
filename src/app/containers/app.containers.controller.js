@@ -31,18 +31,26 @@
        };
 
        $scope.updateContainer = function(){
-            $http.post(URLSERVER+'/updateContainer', $scope.selectedContainer).success(function(result){
-                console.log($scope.selectedContainer._id);
-                console.log(JSON.stringify($scope.selectedContainer));
-                $scope.editInputs();
-                $scope.closeContainerInfoView();
+            containersService.updateContainer($scope.selectedContainer).then(function(result){
+                if(result ==1){
+                    alert("Un problème est survenu : le conteneur n'a pas était modifié");
+                }else{
+                    console.log($scope.selectedContainer._id);
+                    console.log(JSON.stringify($scope.selectedContainer));
+                    $scope.editInputs();
+                    $scope.closeContainerInfoView();
+                }
             })
        }
 
        $scope.deleteContainer = function(){
-            $http.post(URLSERVER+'/deleteContainer', $scope.selectedContainer).success(function(result){
+            containersService.deleteContainer($scope.selectedContainer).then(function(result){
+             if(result ==1){
+                alert("Un problème est survenu : le conteneur n'a pas était modifié");
+             }else{
                 $scope.getContainers();
                 $scope.closeContainerInfoView;
+             }
             })
        }
        $scope.getContainers = function(id){

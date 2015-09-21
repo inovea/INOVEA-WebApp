@@ -10,7 +10,9 @@
     function containersService($log, $http, $rootScope, URLSERVER) {
 
         return {
-            getContainers: getContainers
+            getContainers: getContainers,
+            deleteContainer: deleteContainer,
+            updateContainer: updateContainer
         };
 
 
@@ -26,5 +28,24 @@
                 })
             }
         }
+
+        function updateContainer(obj) {
+               return $http.post(URLSERVER+'/updateContainer', obj).success(function(result){
+               if(result=='0'){
+                return result;
+               }else{
+                    return 1;
+               }
+            })
+         }
+        function deleteContainer(obj) {
+                return $http.post(URLSERVER+'/deleteContainer', obj).success(function(result){
+                     if(result=='0'){
+                        return result;
+                     }else{
+                         return 1;
+                     }
+                        })
+                }
     }
 })();
