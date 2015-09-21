@@ -45,14 +45,20 @@
     }
 
     $scope.getUsers = function(id){
+        $("#userLoader").addClass('active');
         usersService.getUsers().then(function(result){
             $scope.users = result;
+            $("#userLoader").removeClass('active');
         });
     }
 
     $scope.addUser = function (){
+        $scope.closeUserAddView();
+        $("#userLoader").addClass('active');
+
         usersService.addUser($scope.newUser).then(function(result){
             if(result == 1){
+                $scope.openUserAddView();
                  alert("Un problème est survenu : le compte n'a pas été créé.");
             } else {
                 $timeout(function() {

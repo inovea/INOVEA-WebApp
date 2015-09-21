@@ -1,5 +1,14 @@
 <inovea-menu title="Utilisateurs"></inovea-menu>
 
+
+<!--
+Loader
+-->
+<div id="userLoader" class="ui dimmer">
+    <div class="ui text loader">Loading</div>
+</div>
+
+
 <!-- BARRE DE RECHERCHE -->
 <div id="userHeader">
   <div class="ui fluid category search">
@@ -79,6 +88,8 @@
 
     <!-- INFO USER VIEW -->
     <div id="infoUserModal" class="ui modal">
+
+
       <div class="header">
           Informations
           <i class="remove red icon exitIcon" ng-click="closeUserInfoView()"></i> 
@@ -169,12 +180,13 @@
 
     <!-- ADD USER VIEW -->
     <div id="addUserModal" class="ui modal">
-      <div class="header">
+
+        <div class="header">
         Nouveau utilisateur
       <i class="remove red icon exitIcon" ng-click="closeUserAddView()"></i>
     </div>
       <div class="content">
-        <form class="ui fluid form">
+          <form class="ui fluid form">
 
           <div class="field">
             <div class="ui pointing below label">
