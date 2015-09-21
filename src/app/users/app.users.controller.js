@@ -5,10 +5,10 @@
     .module('app')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope'];
+    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'usersService'];
 
     /* @ngInject */
-    function UserCtrl($log, $scope, $http, $rootScope) {
+    function UserCtrl($log, $scope, $http, $rootScope, usersService) {
        //var serverUrl = 'http://localhost:8080';
        var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
 
@@ -17,7 +17,7 @@
 
        $scope.editInputs = function () {
         $scope.isEditableInfoView = !$scope.isEditableInfoView;
-    };
+        }
 
     $scope.openUserInfoView = function (selectedUser) {
         $('#infoUserModal')
@@ -49,15 +49,10 @@
 
 
     $scope.getUsers = function(id){
-        if(id){
-            $http.get(serverUrl+'/users', id).success(function(result){
-                return result;
-            })
-        } else{
-            $http.get(serverUrl+'/users').success(function(result){
-                $scope.users = result;
-            })
-        }
+      usersService.getUsers().then(function(result){
+            console.log('result', JSON.stringify(result));
+            $scope.users = result;
+      });
 
     }
 
@@ -95,7 +90,7 @@
     // }
 
 
-    $scope.users = $scope.getUsers();
+    $scope.getUsers();
         // console.log(JSON.stringify($scope.users));
 
     }

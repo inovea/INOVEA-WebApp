@@ -5,10 +5,10 @@
     .module('app')
     .controller('ContainerCtrl', ContainerCtrl);
 
-    ContainerCtrl.$inject = ['$log', '$scope', '$http', '$rootScope'];
+    ContainerCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'containersService'];
 
     /* @ngInject */
-    function ContainerCtrl($log, $scope, $http, $rootScope) {
+    function ContainerCtrl($log, $scope, $http, $rootScope, containersService) {
        //var serverUrl = 'http://localhost:8080';
        var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
 
@@ -49,15 +49,10 @@
        }
        $scope.getContainers = function(id){
 
-            if(id){
-                $http.get(serverUrl+'/containers', id).success(function(result){
-                        return result;
-                    })
-                } else{
-                    $http.get(serverUrl+'/containers').success(function(result){
-                    $scope.containers = result;
-                })
-            }
+           containersService.getContainers().then(function(result){
+               console.log('result ::', JSON.stringify(result));
+               $scope.containers = result;
+           });
                
         }
 

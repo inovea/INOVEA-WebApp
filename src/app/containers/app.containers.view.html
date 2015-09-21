@@ -4,22 +4,6 @@
 
 <inovea-menu title="Conteneurs"></inovea-menu>
 
-<form>
-    <!--<div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control" placeholder="Rechercher un utilisateur" ng-model="searchFish">
-      </div>      
-    </div>-->
-<div class="ui fluid category search">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Rechercher..." ng-model="searchFish">
-    <i class="search icon"></i>
-  </div>
-<div class="results"></div>
-
-</form>
-
 <table class="ui fixed striped selectable padded inverted grey table">
   <thead>
     <tr>
@@ -63,7 +47,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat='container in containers | orderBy:sortType:sortReverse | filter:searchFish' ng-click="openContainerInfoView(container)">
+    <tr ng-repeat='container in containers.data | orderBy:sortType:sortReverse | filter:searchFish' ng-click="openContainerInfoView(container)">
       <!--ng-click="setSelected(user._id)" ng-class="{'selected:' user.id === idSelectedUser}-->
       <td >{{container.name}}</td>
       <td>{{container.lat}}</td>
