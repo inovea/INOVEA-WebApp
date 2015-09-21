@@ -15,7 +15,7 @@
 
        $scope.editInputs = function () {
         $scope.isEditableInfoView = !$scope.isEditableInfoView;
-        }
+    }
 
     $scope.openUserInfoView = function (selectedUser) {
         $('#infoUserModal')
@@ -47,33 +47,46 @@
 
 
     $scope.getUsers = function(id){
-      usersService.getUsers().then(function(result){
-            console.log('result', JSON.stringify(result));
+        usersService.getUsers().then(function(result){
+            console.log('Controller GetUsers : ', JSON.stringify(result));
             $scope.users = result;
-      });
+        });
 
     }
 
-    $scope.addUser = function(){
 
-        console.log('before add : ', $scope.newUser);
-        $http.post(URLSERVER+'/users', $scope.newUser).success(function(data, status) {
-            $scope.getUsers();
-            $scope.closeUserAddView();
-            $scope.newUser = null;
-             console.log("after add :", $scope.newUser);
-        })
-        
-       
+    $scope.addUser = function (){
 
-    }
+    
 
-     $scope.deleteUser = function(){
-                $http.post(URLSERVER+"/deleteUser", $scope.selectedUser).success(function(result){
-                    $scope.getUsers();
-                    $scope.closeUserInfoView();
-                })
+        $scope.editInputs();
+        console.log('[addUser called] : ',$scope.newUser);
+        usersService.addUser($scope.newUser).then(function(result){
+            console.log('Controller AddUsers : ', JSON.stringify(result));
+            if(result == 1){
+                 console.log("Un problème est survenu, le traitement n'a pas été executé");
+                // alert("Un problème est survenu, le traitement n'a pas été executé");       
+            } else {
+                
+             //   $scope.getUsers(); 
+                $scope.closeUserAddView();
+                $scope.newUser = null;
+                console.log("USER AJOUTER !!!!");
             }
+        });
+    }
+
+
+    $scope.deleteUser = function(){
+        usersService.deleteUser($scope.selectedUser).then(function(result){
+            if(result){
+                $scope.getUsers();
+                $scope.closeUserInfoView();
+            } else {
+                alert("Un problème est survenu, le traitement n'a pas été executé");
+            }
+        })        
+    }
 
     $scope.updateUser = function (){
 
@@ -83,10 +96,6 @@
             $scope.editInputs();
         })
     }
-
-    // $scope.addUser = function (){
-    //     $scope.editInputs();
-    // }
 
 
     $scope.getUsers();
