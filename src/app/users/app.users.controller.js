@@ -5,12 +5,10 @@
     .module('app')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'usersService'];
+    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'URLSERVER' ,'usersService'];
 
     /* @ngInject */
-    function UserCtrl($log, $scope, $http, $rootScope, usersService) {
-       //var serverUrl = 'http://localhost:8080';
-       var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
+    function UserCtrl($log, $scope, $http, $rootScope, URLSERVER, usersService) {
 
        $scope.selectedUser;
        $scope.isEditableInfoView = false; 
@@ -59,7 +57,7 @@
     $scope.addUser = function(){
 
         console.log('before add : ', $scope.newUser);
-        $http.post(serverUrl+'/users', $scope.newUser).success(function(data, status) {
+        $http.post(URLSERVER+'/users', $scope.newUser).success(function(data, status) {
             $scope.getUsers();
             $scope.closeUserAddView();
              console.log("after add :", $scope.newUser);
@@ -70,7 +68,7 @@
     }
 
      $scope.deleteUser = function(){
-                $http.post(serverUrl+"/deleteUser", $scope.selectedUser).success(function(result){
+                $http.post(URLSERVER+"/deleteUser", $scope.selectedUser).success(function(result){
                     $scope.getUsers();
                     $scope.closeUserInfoView();
                 })
@@ -78,7 +76,7 @@
 
     $scope.updateUser = function (){
 
-        $http.post(serverUrl+'/updateUser', $scope.selectedUser).success(function(data, status) {
+        $http.post(URLSERVER+'/updateUser', $scope.selectedUser).success(function(data, status) {
             console.log($scope.selectedUser._id);
             console.log(JSON.stringify($scope.selectedUser));
             $scope.editInputs();

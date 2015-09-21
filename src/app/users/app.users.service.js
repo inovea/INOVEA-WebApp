@@ -5,13 +5,9 @@
         .module('app')
         .factory('usersService', usersService);
 
-    usersService.$inject = ['$log', '$http', '$rootScope'];
+    usersService.$inject = ['$log', '$http', '$rootScope', 'URLSERVER'];
 
-    function usersService($log, $http, $rootScope) {
-
-
-        var serverUrl = $rootScope.serverUrl;
-        console.log("my url", serverUrl);
+    function usersService($log, $http, $rootScope, URLSERVER) {
 
         return {
             getUsers: getUsers
@@ -21,11 +17,11 @@
         function getUsers(obj) {
 
             if (obj) {
-                return $http.get(serverUrl + '/users', id).success(function (result) {
+                return $http.get(URLSERVER + '/users', id).success(function (result) {
                     return result;
                 })
             } else {
-                return $http.get(serverUrl + '/users').success(function (result) {
+                return $http.get(URLSERVER + '/users').success(function (result) {
                     return result;
                 })
             }

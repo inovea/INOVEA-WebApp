@@ -5,6 +5,7 @@
         .module('app', [
             'ngRoute'
         ])
+        .constant("URLSERVER", "https://pure-tor-1824.herokuapp.com")
         .config(['$routeProvider', function($routeProvider) {
             $routeProvider
                 .when('/connexion', {

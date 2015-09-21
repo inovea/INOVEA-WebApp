@@ -50,7 +50,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat='user in users | orderBy:sortType:sortReverse | filter:searchUser' ng-click="openUserInfoView(user)" >
+      <tr ng-repeat='user in users.data | orderBy:sortType:sortReverse | filter:searchUser' ng-click="openUserInfoView(user)" >
         <td >{{user.name}}</td>
         <td>{{user.firstname}}</td>
         <td>{{user.mail}}</td>

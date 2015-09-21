@@ -5,12 +5,10 @@
     .module('app')
     .controller('ContainerCtrl', ContainerCtrl);
 
-    ContainerCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'containersService'];
+    ContainerCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'URLSERVER', 'containersService'];
 
     /* @ngInject */
-    function ContainerCtrl($log, $scope, $http, $rootScope, containersService) {
-       //var serverUrl = 'http://localhost:8080';
-       var serverUrl = $rootScope.serverUrl = "https://pure-tor-1824.herokuapp.com";
+    function ContainerCtrl($log, $scope, $http, $rootScope, URLSERVER, containersService){
 
        $scope.isEditableInfoView = false;
        $scope.editInputs = function (){
@@ -33,7 +31,7 @@
        };
 
        $scope.updateContainer = function(){
-            $http.post(serverUrl+'/updateContainer', $scope.selectedContainer).success(function(result){
+            $http.post(URLSERVER+'/updateContainer', $scope.selectedContainer).success(function(result){
                 console.log($scope.selectedContainer._id);
                 console.log(JSON.stringify($scope.selectedContainer));
                 $scope.editInputs();
@@ -42,7 +40,7 @@
        }
 
        $scope.deleteContainer = function(){
-            $http.post(serverUrl+'/deleteContainer', $scope.selectedContainer).success(function(result){
+            $http.post(URLSERVER+'/deleteContainer', $scope.selectedContainer).success(function(result){
                 $scope.getContainers();
                 $scope.closeContainerInfoView;
             })
