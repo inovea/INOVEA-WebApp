@@ -22,7 +22,6 @@
         .modal('setting', 'closable', false)
         .modal('show')
         ;
-        console.log(JSON.stringify(selectedUser));
         $scope.selectedUser = selectedUser;
     };
     $scope.closeUserInfoView = function (selectedUser) {
@@ -45,35 +44,22 @@
         ;
     }
 
-
     $scope.getUsers = function(id){
         usersService.getUsers().then(function(result){
-            console.log('Controller GetUsers : ', JSON.stringify(result));
             $scope.users = result;
         });
-
     }
 
-
     $scope.addUser = function (){
-
-        console.log('[addUser called] : ',$scope.newUser);
         usersService.addUser($scope.newUser).then(function(result){
-            console.log('Controller AddUsers : ', JSON.stringify(result));
             if(result == 1){
-                 console.log("Un problème est survenu, le traitement n'a pas été executé");
-                // alert("Un problème est survenu, le traitement n'a pas été executé");       
+                 alert("Un problème est survenu : le compte n'a pas été créé.");
             } else {
-                
-             //   $scope.getUsers(); 
                 $timeout(function() {
                     $scope.getUsers();
                     $scope.closeUserAddView();
                     $scope.newUser = null;
-                    console.log("USER AJOUTER !!!!");
                 }, 200);
-
-
             }
         });
     }
