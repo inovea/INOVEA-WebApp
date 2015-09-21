@@ -5,10 +5,10 @@
     .module('app')
     .controller('UserCtrl', UserCtrl);
 
-    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', 'URLSERVER' ,'usersService'];
+    UserCtrl.$inject = ['$log', '$scope', '$http', '$rootScope', '$timeout', 'URLSERVER' ,'usersService'];
 
     /* @ngInject */
-    function UserCtrl($log, $scope, $http, $rootScope, URLSERVER, usersService) {
+    function UserCtrl($log, $scope, $http, $rootScope, $timeout, URLSERVER, usersService) {
 
        $scope.selectedUser;
        $scope.isEditableInfoView = false; 
@@ -69,9 +69,14 @@
             } else {
                 
              //   $scope.getUsers(); 
-                $scope.closeUserAddView();
-                $scope.newUser = null;
-                console.log("USER AJOUTER !!!!");
+                $timeout(function() {
+                    $scope.getUsers();
+                    $scope.closeUserAddView();
+                    $scope.newUser = null;
+                    console.log("USER AJOUTER !!!!");
+                }, 200);
+
+
             }
         });
     }
