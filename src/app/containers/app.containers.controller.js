@@ -54,10 +54,12 @@
             })
        }
        $scope.getContainers = function(id){
-
+           $scope.closeContainerInfoView();
+           $("#containerLoader").addClass('active');
            containersService.getContainers().then(function(result){
                console.log('result ::', JSON.stringify(result));
                $scope.containers = result;
+               $("#containerLoader").removeClass('active');
            });
                
         }
