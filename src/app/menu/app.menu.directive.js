@@ -20,7 +20,9 @@
                     };
 
                     scope.goToView = function(path){
+                        $('.ui.sidebar').sidebar('toggle')
                         $location.path(path);
+
                     };
 
                     scope.title = attrs.title;
