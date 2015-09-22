@@ -16,10 +16,12 @@
         };
 
 
-        function getContainers(obj) {
-
-            if(obj){
-                return $http.get(URLSERVER+'/containers', id).success(function(result){
+        function getContainers(id) {
+            console.log("ContainerService getContainers ... obj : ");
+            console.log(JSON.stringify(id));
+            if(id){
+                return $http.post(URLSERVER+'/containers', id).success(function(result){
+                    console.log(JSON.stringify(result));
                     return result;
                 })
             } else{

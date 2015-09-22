@@ -24,6 +24,10 @@
                     templateUrl: 'app/containers/app.containers.view.html',
                     controller : 'ContainerCtrl'
                 })
+                .when('/alertsView', {
+                    templateUrl: 'app/alerts/app.alerts.view.html',
+                    controller : 'AlertCtrl'
+                })
 
                 .otherwise({
                     redirectTo: '/connexion'
