@@ -22,13 +22,13 @@
                 })
             } else {
                 return $http.get(URLSERVER + '/alerts').success(function (result) {
-                    for(var i in result){
+                    /*for(var i in result){
                         console.log(JSON.stringify(result[i]));
                         containersService.getContainers(result[i].container_id).then(function(containerResult){
                          console.log('result ::', JSON.stringify(containerResult));
                          alert.containerLibelle = containerResult.libelle;
                      });
-                    }
+                    }*/
                     return result;
                 })
             }

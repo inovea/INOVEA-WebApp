@@ -10,18 +10,40 @@
     /* @ngInject */
     function AlertCtrl($log, $scope, $http, $rootScope, $timeout, URLSERVER, alertsService) {
 
-    $scope.getAlerts = function(id){
-        console.log("[CONTROLLER] getAlerts called");
-        $("#alertLoader").addClass('active');
-        alertsService.getAlerts().then(function(result){
-            $scope.alerts = result;
-            $("#alertLoader").removeClass('active');
-        });
-    }
+        $scope.sortType='startDate';
+        $scope.selectedAlert;
+        $scope.isEditableInfoView = false;     
 
-    $scope.sortType='startDate';
+        $scope.getAlerts = function(id){
+            console.log("[CONTROLLER] getAlerts called");
+            $("#alertLoader").addClass('active');
+            alertsService.getAlerts().then(function(result){
+                $scope.alerts = result;
+                $("#alertLoader").removeClass('active');
+            });
+        }
 
-    $scope.getAlerts();
+        $scope.openAlertInfoView = function (selectedAlert) {
+            $('#infoAlertModal')
+            .modal('setting', 'closable', false)
+            .modal('show')
+            ;
+            $scope.selectedAlert = selectedAlert;
+        };
+        
+        $scope.closeAlertInfoView = function (selectedAlert) {
+            $('#infoAlertModal')
+            .modal('hide')
+            ;
+            $scope.isEditableInfoView = false;
+        };
+
+        $scope.editInputs = function () {
+            $scope.isEditableInfoView = !$scope.isEditableInfoView;
+        }
+
+
+        $scope.getAlerts();
 
     }
 })();
